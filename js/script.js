@@ -77,3 +77,17 @@ function toggleLinkListNightMode() {
         item.classList.toggle('night-mode');
     });
 }
+
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    // Calculate the scroll position
+    const scrollPosition = window.scrollY;
+
+    // Set the background color based on the scroll position
+    if (scrollPosition > 100) {
+        navbar.style.backgroundColor = 'rgba(51, 51, 51, 1)'; // Solid background when scrolled
+    } else {
+        navbar.style.backgroundColor = 'rgba(51, 51, 51, 0)'; // Transparent background initially
+    }
+});

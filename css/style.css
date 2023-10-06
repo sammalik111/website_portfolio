@@ -1,4 +1,4 @@
-
+/* MAIN PAGE FORMATTING */
 body {
     background: #fff;
     color: #333;
@@ -7,253 +7,36 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.5s ease, color 0.5s ease;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
 }
-
-body.night-mode {
-    background: #222;
-    color: #f5f5f5;
-}
-
-.about-me.night-mode, .skills.night-mode, .projects.night-mode{
-    background: black;
-    padding: 2rem;
-    border-radius: 5px;
-    transition: background-color 0.5s ease;
-}
-
-.night-mode-container {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.night_mode {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-.night_mode:hover {
-    background-color: #222;
-}
-
-/* project expriences grid css  */
-
-.project-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    transition: opacity 0.5s ease;
-}
-
-.night-mode .project-grid {
-    opacity: 0.5;
-}
-
-.project-title {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: black;
-    opacity: 1.0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-.night-mode .project-title {
-    background-color: rgba(55, 55, 55, 0.1);
-    color: white;
-}
-
-.project-card {
-    background-color: rgba(230, 230, 230, 1);
-    color: white;
-    height: 360px;
-    width: calc(50% - 10px);
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-.night-mode .project-card {
-    background-color: rgba(55, 55, 55, 1);
-    color: white;
-}
-
-.project-description {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease-in-out;
-    overflow: scroll;
-    box-sizing: border-box;
-}
-
-.project-card:hover .project-description {
-    transform: translateY(0);
-}
-
-.project-card:hover .project-title {
-    transform: translateY(-100%);
-}
-
-/* Rest of the CSS code */
-
 main {
     max-width: 900px;
     margin: 0 auto;
     padding: 1rem;
 }
-
 section {
     margin-bottom: 2rem;
 }
-
-.hero {
-    text-align: center;
-    margin-bottom: 3rem;
+body.night-mode {
+    background: #222;
+    color: #f5f5f5;
 }
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0;
-}
-
-.hero h2 {
-    font-size: 1.5rem;
-    color: #666;
-}
-
-.contact {
+.page {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    align-items: center;
+    height: 100vh; /* Make the container take the full viewport height */
 }
-
-.contact a {
-    color: #333;
-    text-decoration: none;
+.main-content {
+    padding-left: 100px;
+    padding-top: 100px; /* Adjust this value to leave space for the navbar */
+    min-height: calc(100% - 100px); /* Adjust this value to account for the navbar and contact bar */
 }
-
-.about-me, .skills, .projects {
-    background: #f8f8f8;
-    padding: 2rem;
-    border-radius: 5px;
+.keyword {
+    color:rgb(137, 42, 67)
 }
-
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.skill-list p {
-    background: #eee;
-    padding: 0.5rem 1rem;
-    border-radius: 3px;
-    color: #333; /* Set the text color as black */
-}
-
-.night-mode .skill-list p {
-    color: #000; /* Set the text color as black in night mode */
-}
-
-
-@keyframes slide-in {
-    0% { margin-left: -100%; }
-    100% { margin-left: 0; }
-}
-
-.project-link {
-    display: none;
-    margin-top: 1rem;
-    color: #666;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.project-description-hover {
-    cursor: pointer;
-}
-
-.project-description-hover:hover + .project-link {
-    display: inline;
-}
-
-/* links to projects styling */
-
-.additional-links {
-    background: #f8f8f8;
-    padding: 2rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.additional-links.night-mode {
-    background: black;
-    color: white;
-}
-
-.additional-links h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.additional-links.night-mode h2 {
-    color: white;
-}
-
-.link-list {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.link-list a {
-    background-color: #eee;
-    padding: 0.5rem 1rem;
-    border-radius: 3px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.link-list a:hover {
-    background-color: #222;
-    color: #fff;
-}
-
-.link-list a.night-mode {
-    background-color: #555;
-    color: white;
-}
-
-.link-list a.night-mode:hover {
-    background-color: #fff;
-    color: #222;
-}
-
 /* scroll button styling */
-
 .scroll-button {
     background-color: #000;
     color: #fff;
@@ -270,56 +53,23 @@ section {
 }
 
 
-/* navbar styling */
 
-.contact-bar {
-    position: fixed;
-    left: 0;
-    bottom: 1px;
-    background-color: rgba(245, 245, 245, 1);
-    width: 35px; /* Adjust the width as needed */
-    padding: 10px;
-    color: #f2f2f2;
-    text-align: center;
-    height: 100%;
-    z-index: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    transition: background-color 0.3s ease, color 0.3s ease;
 
-}
-.contact-bar.night-mode {
-    background-color: rgba(55, 55, 55, 1);
-    color: #f2f2f2;
-}
 
-.contact-bar a {
-    display: block;
-    color: grey;
-    text-decoration: none;
-    margin-bottom: 8px;
-    font-size: 10px;
-}
 
-.contact-bar a img {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-    vertical-align: middle;
-}
 
-.contact-bar a:hover {
-    color: #ddd;
-}
 
+
+
+/* NAV BAR FORMATTING */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0); /* Transparent background initially */
     overflow: hidden;
-    z-index: 1;
+    z-index: 2;
+    transition: background-color 0.5s ease; /* Transition for background color */
 }
 
 .navbar a {
@@ -336,22 +86,256 @@ section {
     color: black;
 }
 
-.contact-bar.night-mode {
-    background-color: rgba(55, 55, 55, 0.1);
-    color: #f2f2f2;
+
+
+
+
+
+
+/* INTRO PAGE FORMATTING */
+.intro {
+    background-image: url("../icons/lahore.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    
 }
-/* Add padding to the page content to prevent overlap */
-.main-content {
-    padding-top: 60px; /* Adjust this value based on the height of your navbar */
+.intro p, .intro h2 {
+    z-index: 1;
+    color: white; /* Set the text color to be visible on the background */
+    position: relative;
+    left: 30%;
+}
+.intro::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Place the overlay above the background image */
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+}
+.icons a {
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000; /* Border color and thickness */
+    border-radius: 40px; /* Rounded corners for a frame effect */
+    margin-right: 10px;
+}
+.icons a img {
+    width: 100%;
+    height: 100%;
 }
 
-.main-content {
-    padding-left: 100px;
-    padding-top: 100px; /* Adjust this value to leave space for the navbar */
-    min-height: calc(100% - 100px); /* Adjust this value to account for the navbar and contact bar */
+
+
+
+
+
+
+
+
+
+/* ABOUT ME FORMATTING */
+#about-me-container {
+    width: 70%;
+    margin-left: 15%;
+}
+.about-me-image{
+    width: 45%;
+    height: 54%;
+    display: inline-block; /* Ensures the frame wraps the image */
+    padding: 10px; /* Adjust the padding to control the frame size */
+    border: 2px solid #000; /* Border color and thickness */
+    border-radius: 10px; /* Rounded corners for a frame effect */
+    margin-right: 10px;
+}
+.about-me h2 {
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
-@media screen and (min-width: 0px) and (max-width: 600px) {
+
+
+
+
+
+
+
+
+
+/* PROJECTS FORMATTING */
+#projects-container{
+    background-color: black;
+    white-space: nowrap;
+    width: max-content;
+}
+.project-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: opacity 0.5s ease;
+    animation: scrollProjects 80s linear infinite; /* Adjust the animation duration as needed */
+    overflow-x: hidden;
+}
+.project-title {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: black;
+    opacity: 1.0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+.project-card {
+    background-color: rgba(230, 230, 230, 1);
+    color: white;
+    height: 45vh;
+    width: 30vw;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    text-wrap:wrap;
+    cursor: pointer;
+    transform: scale(1, 1);
+    transition: transform 3s ease;
+    /* transition: background-color 0.5s ease, color 0.5s ease; */
+}
+.project-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    overflow: scroll;
+    box-sizing: border-box;
+}
+.project-card:hover .project-description {
+    transform: translateY(0);
+}
+.project-card:hover .project-title {
+    transform: translateY(-100%);
+}
+.project-description-hover {
+    cursor: pointer;
+}
+.project-description-hover:hover + .project-link {
+    display: inline;
+}
+@keyframes scrollProjects {
+    0% {
+        transform: translateX(0); /* Start with cards already onscreen (no translation) */
+    }
+    100% {
+        transform: translateX(calc(-40vw - 20px)); /* Move off-screen to the left and repeat */
+    }
+}
+
+
+
+
+
+
+/* SKILL LIST FORMATTING */
+.about-me, .skills{
+    background: #f8f8f8;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 45%;
+    height: 50%;
+}
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.skill-list p {
+    background: #eee;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    color: #333; /* Set the text color as black */
+}
+
+
+
+
+
+
+
+
+
+/* CONTACT PAGE FORMATTING */
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.contact-info, .contact-form {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* MOBILR VIEW FORMATTING */
+@media screen and (min-width: 408px) and (max-width: 600px) {
     .contact-bar{
         width: 100%;
         color:white;
@@ -385,8 +369,11 @@ section {
     }
     .project-grid{
         display: flex;
-        flex-direction: column;
-        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        width: 100vw;
     }
     .project-card{
         width: 100%;
@@ -405,6 +392,7 @@ section {
     }
 }
 
+/* MOBILE VIEW FORMATTING */
 @media screen and (max-width: 408px) {
     .contact-bar{
         bottom: 0;
@@ -422,4 +410,65 @@ section {
     .project-card {
         height: 600px;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+.about-me.night-mode, .skills.night-mode, .projects.night-mode{
+    background: black;
+    padding: 2rem;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+}
+.night-mode-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.night_mode {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+.night_mode:hover {
+    background-color: #222;
+}
+.night-mode .project-grid {
+    opacity: 0.5;
+}
+.night-mode .project-title {
+    background-color: rgba(55, 55, 55, 0.1);
+    color: white;
+}
+.night-mode .project-card {
+    background-color: rgba(55, 55, 55, 1);
+    color: white;
+}
+.night-mode .skill-list p {
+    color: #000; /* Set the text color as black in night mode */
+}
+.contact-bar.night-mode {
+    background-color: rgba(55, 55, 55, 0.1);
+    color: #f2f2f2;
+}
+.link-list a.night-mode {
+    background-color: #555;
+    color: white;
+}
+
+.link-list a.night-mode:hover {
+    background-color: #fff;
+    color: #222;
 }

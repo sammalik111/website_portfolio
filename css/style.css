@@ -24,9 +24,17 @@ body.night-mode {
 }
 .page {
     display: flex;
+    flex-direction: row; /* Stack items vertically */
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Make the container take the full viewport height */
+    min-height: 100vh;
+    width: 100%; /* Occupy the full viewport width */
+    /* padding-left: 5%; */
+}
+#contacts-container, #about-me-container{
+    width: 80vw;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 .main-content {
     padding-left: 100px;
@@ -121,6 +129,33 @@ body.night-mode {
     height: 100vh;
     z-index: 1; /* Place the overlay above the background image */
 }
+
+
+
+
+
+
+
+
+
+/* ABOUT ME FORMATTING */
+/* #about-me-container {
+    width: 70%;
+    margin-left: 15%;
+} */
+.about-me-image{
+    width: 45%;
+    height: 54%;
+    display: inline-block; /* Ensures the frame wraps the image */
+    padding: 10px; /* Adjust the padding to control the frame size */
+    border: 2px solid #000; /* Border color and thickness */
+    border-radius: 10px; /* Rounded corners for a frame effect */
+    margin-right: 10px;
+}
+.about-me h2 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
 .icons{
     display: flex;
     flex-direction: row;
@@ -145,48 +180,17 @@ body.night-mode {
 
 
 
-
-
-/* ABOUT ME FORMATTING */
-#about-me-container {
-    width: 70%;
-    margin-left: 15%;
-}
-.about-me-image{
-    width: 45%;
-    height: 54%;
-    display: inline-block; /* Ensures the frame wraps the image */
-    padding: 10px; /* Adjust the padding to control the frame size */
-    border: 2px solid #000; /* Border color and thickness */
-    border-radius: 10px; /* Rounded corners for a frame effect */
-    margin-right: 10px;
-}
-.about-me h2 {
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-
-
-
-
-
-
-
-
-
 /* PROJECTS FORMATTING */
 #projects-container{
     background-color: black;
     white-space: nowrap;
-    width: max-content;
 }
 .project-grid {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     transition: opacity 0.5s ease;
-    animation: scrollProjects 80s linear infinite; /* Adjust the animation duration as needed */
+    animation: scrollProjects 5s linear infinite; /* Adjust the animation duration as needed */
     overflow-x: hidden;
 }
 .project-title {
@@ -198,13 +202,13 @@ body.night-mode {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    flex-direction: column;
 }
 .project-card {
     background-color: rgba(230, 230, 230, 1);
     color: white;
     height: 45vh;
-    width: 30vw;
+    width: 25vw;
     margin: 20px;
     position: relative;
     overflow: hidden;
@@ -227,6 +231,37 @@ body.night-mode {
     transition: transform 0.3s ease-in-out;
     overflow: scroll;
     box-sizing: border-box;
+}
+.card-text {
+    color: grey;
+    position: absolute;
+    bottom: 0; /* Position at the bottom of the project card */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px; /* Adjust padding as needed */
+    box-sizing: border-box;
+    text-align: left; /* Center-align the text */
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+}
+.card-info-container{
+    display: flex;
+    justify-content: space-between;
+}
+.link-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.link-list a {
+    background-color: #eee;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    color: #333;
+    text-decoration: none;
 }
 .project-card:hover .project-description {
     transform: translateY(0);
@@ -255,12 +290,12 @@ body.night-mode {
 
 
 /* SKILL LIST FORMATTING */
+
 .about-me, .skills{
     background: #f8f8f8;
     padding: 2rem;
     border-radius: 5px;
     width: 45%;
-    height: 50%;
 }
 .skill-list {
     display: flex;
@@ -285,30 +320,40 @@ body.night-mode {
 
 
 /* CONTACT PAGE FORMATTING */
-h2 {
-    color: #333;
-    font-size: 24px;
-    margin-top: 0;
+#contacts-container{
+    display: flex;
+    flex-direction: column;
 }
-
-.contact-info, .contact-form {
+.contact-form , .contact-info {
     margin-bottom: 30px;
+    width: 100%;
 }
-
+.contact-info-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap:20px;
+}
+h2 {
+    font-size: 24px;
+    margin: 0;
+}
 label {
-    display: block;
     font-weight: bold;
+    display: block;
     margin-bottom: 5px;
 }
-
 input[type="text"],
 input[type="email"],
 textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #333;
     border-radius: 4px;
+    border-color:#222;
+    background-color: #000;
 }
 
 button[type="submit"] {
@@ -318,12 +363,28 @@ button[type="submit"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
 button[type="submit"]:hover {
     background-color: #555;
 }
 
+
+
+
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100px;
+    background-color: #222;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
@@ -335,23 +396,7 @@ button[type="submit"]:hover {
 
 
 /* MOBILR VIEW FORMATTING */
-@media screen and (min-width: 408px) and (max-width: 600px) {
-    .contact-bar{
-        width: 100%;
-        color:white;
-        height: 3%;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        top:7%;
-        z-index: 1;
-    }
-    .contact-bar a {
-        margin-left: 10px;
-        margin-right: 10px;
-        font-size: 12px;
-        margin-bottom: 0px;
-    }
+@media screen and (min-width: 600px) and (max-width: 1000px) {
     .navbar{
         display: flex;
         flex-direction: row;
@@ -360,7 +405,10 @@ button[type="submit"]:hover {
         height: 7%;
     }
     .navbar a{
-        font-size: 12px;
+        font-size: 18px;
+    }
+    #about-me-container{
+        flex-direction: column;
     }
     .main-content{
         padding-left: 10%;
@@ -373,18 +421,14 @@ button[type="submit"]:hover {
         justify-content: center;
         gap: 15px;
         margin-top: 20px;
-        width: 100vw;
+        animation: none;
     }
     .project-card{
         width: 100%;
         height: 500px;
     }
-
-    .skill-list p {
-        width: 35%;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+    .projects, .contact-info, .contact-form{
+        width: 55%;
     }
     .contact-bar.night-mode {
         background-color: rgba(30, 30, 30, 1);
@@ -392,8 +436,17 @@ button[type="submit"]:hover {
     }
 }
 
+
+
+
+
+
+
+
+
+
 /* MOBILE VIEW FORMATTING */
-@media screen and (max-width: 408px) {
+@media screen and (max-width: 600px) {
     .contact-bar{
         bottom: 0;
     }
@@ -409,6 +462,24 @@ button[type="submit"]:hover {
     }
     .project-card {
         height: 600px;
+    }
+    .contact-info-list, #about-me-container, .project-grid{
+        flex-direction: column;
+    }
+    .projects, .contact-info, .contact-form, .about-me-image,.about-me{
+        width: 70%;
+    }
+    .project-grid{
+        animation: none;
+    }
+    .project-card{
+        width: 100%;
+    }
+    .navbar a{
+        font-size: 12px;
+    }
+    .intro p, .intro h2 {
+        left: 10%;
     }
 }
 

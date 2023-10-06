@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shahmeer Malik's Portfolio</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="#hero">About Me</a>
+            <!-- <a href="#about">About Me</a> -->
+            <a href="#skills">Skills</a>
+            <a href="#links">Links to Projects</a>
+            <a href="#projects">Project Experience</a>
+        </nav>
+        <div class="contact-bar" id="contact-bar">
+            <a href="https://github.com/shamWOW911" target="_blank">Github</a>
+            <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/" target="_blank">LinkedIn</a>
+            <a href="mailto:sammalik@umich.com">Email</a>
+        </div>
+        <main class="main-content">
+            <section id="hero" class="hero">
+                <h1>Sam Malik</h1>
+                <h2>Software Engineer</h2>
+                <!-- <div class="contact">
+                    <a style="color: #666" href="https://github.com/shamWOW911" target="_blank" id="github-link"></a>
+                    <a style="color: #666" href="https://www.linkedin.com/in/sam-malik-30b3b822b/" target="_blank" id="linkedin-link"></a>
+                    <a style="color: #666" href="mailto:sammalik@umich.com" id="email-link"></a>
+                </div> -->
+            </section>
+            <div class="night-mode-container">
+                <button class="night_mode">Night Mode</button>
+            </div>
+            
+            <section id="about-me" class="about-me">
+                <h2>About Me</h2>
+                <div class="about-me-content">
+                    <div class="about-me-text">
+                        <p>Hi, my name is Malik. I'm currently a senior at the University of Michigan: Ann Arbor's College of Engineering pursuing a Bachelor's of Science in Engineering with a major in Computer Science  and a Business minor. While I do have a passion for technology, I pursue a range of interests that speak to my diverse talents and passions.</p>
+                        <p>I am fascinated by car mechanics and physics, and I have a love for cooking. Additionally, I enjoy car photography and fitness, and I find joy in playing the guitar. These hobbies demonstrate my creative side and ability to balance different aspects of life.</p>
+                        <p>Feel free to reach out to me if you have any questions or collaboration opportunities!</p>
+                    </div>
+                </div>
+                <button class="scroll-button" id="scroll-button">Scroll</button>
+
+            </section>
+            <section  id="skills" class="skills">
+                <h2>Relevant Skills</h2>
+                <div class="skill-list">
+                    <p>Javascript</p>
+                    <p>C#</p>
+                    <p>C++</p>
+                    <p>HTML</p>
+                    <p>CSS</p>
+                    <p>NodeJS</p>
+                    <p>React JS</p>
+                    <p>Sanity IO</p>
+                    <p>Stripe</p>
+                    <p>VS Code</p>
+                    <p>Xcode</p>
+                    <p>Unity</p>
+                    <p>Linux Shell</p>
+                    <p>Photoshop</p>
+                    <p>Adobe Illustrator</p>
+                </div>
+            </section>
+            <section  id="links" class="additional-links">
+                <h3>Links to Projects</h3>
+                <div class="link-list">
+                    <a href="https://github.com/shamWOW911/malik_Industries">Malik Industries</a>
+                    <a href="https://github.com/shamWOW911/Would-You-Rather-">Would-You-Rather?</a>
+                    <a href="https://github.com/shamWOW911/sound-survivor">Sound Survivor</a>
+                </div>
+            </section>
+            <section  id="projects" class="projects">
+                <h2>Project Experience</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-title">Stock Exchange</div>
+                        <div class="project-description">Programmed a stock exchange simulator that determines the best performing stocks, 
+                            most money to be made on each stock, and average shares/profit each trader made by reading information from a 
+                            CSV file logging sales of all stocks in a day. Debugged hundreds of lines of code using 30 different test files, 
+                            with up to 100,000 sales to test to ensure accuracy. Designed the program using C++ with different command line 
+                            options that output information defined above in a single executable that can run and test very large files in less than 8 seconds.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title">Multi Cycle Processor Assembler and Simulator</div>
+                        <div class="project-description">Programmed a simulator for the processes of a multi-stage processor pipeline. The 
+                            program works in two stages. The first stage takes an assembly file in LegV8 assembly language and assembles it 
+                            into machine code in C language. Then the second stage uses the output from machine code and simulates a computer 
+                            processor that takes in commands to update and access a virtual processor registry and stack. Debugged using many edge 
+                            test cases that ensured that the program accounts for data and control hazards and stalls the pipeline for the fastest execution time possible.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title">Malik Industries</div>
+                        <div class="project-description">Created an interactive website for e-commerce. Programmed using React JS and Next JS framework in conjunction with
+                             Sanity to store a database of products that can be managed and easily updated using the Sanity client dashboard in addition to Stripe to
+                              utilize real-time payments from active users on the website. Designed a feature on the website using the Toast API to notify users when a 
+                              transaction is completed.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title">Would You Rather?</div>
+                        <div class="project-description">Collaborated with a team to create a website that mimics an online game where you choose between two options 
+                            with a functioning comments section, search bar, a working database, and profile options that have login credentials and store session information.
+                             Programmed 20,000 lines of code in Javascript and NodeJS that redirect users around the website using AJAX requests, store personal information 
+                             that can be used even after logged out, and interact with other users all stored on a MongoDB server.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title">Sound Survivor</div>
+                        <div class="project-description">Programmed a 2D platform game using NodeJS where the player has the ability to pick up powers & escape the dimension
+                             they're trapped in. Designed multiple game scenes with cinematic effects in the Unity engine created with C# and JavaScript.</div>
+                    </div>
+                </div>
+                <!-- project cards here -->
+            </section>
+        </main>
+        <script src="js/script.js"></script>
+    </body>
+</html>
+
+

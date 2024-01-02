@@ -202,7 +202,7 @@ body.night-mode {
     flex-direction: column;
 }
 .project-card {
-    background-color: #222;
+    background-color: rgba(230, 230, 230, 1);
     color: white;
     height: 45vh;
     width: 25vw;
@@ -289,7 +289,7 @@ body.night-mode {
 /* SKILL LIST FORMATTING */
 
 .about-me, .skills{
-    background: #111;
+    background: #f8f8f8;
     padding: 2rem;
     border-radius: 5px;
     width: 45%;

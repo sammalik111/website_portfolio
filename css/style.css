@@ -320,7 +320,7 @@ body.night-mode {
 #contacts-container{
     display: flex;
     flex-direction: column;
-    background-color: #222;
+    
 }
 .contact-form , .contact-info {
     margin-bottom: 30px;
@@ -485,7 +485,7 @@ button[type="submit"]:hover {
 
 
 
-.about-me.night-mode, .skills.night-mode, .projects.night-mode{
+.about-me.night-mode, .skills.night-mode, .projects.night-mode .contact-info.night-mode{
     background: black;
     padding: 2rem;
     border-radius: 5px;

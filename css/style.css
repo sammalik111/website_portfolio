@@ -202,7 +202,7 @@ body.night-mode {
     flex-direction: column;
 }
 .project-card {
-    background-color: gray;
+    background-color: #333;
     color: white;
     height: 45vh;
     width: 25vw;

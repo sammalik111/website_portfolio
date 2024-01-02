@@ -1,6 +1,6 @@
 /* MAIN PAGE FORMATTING */
 body {
-    background: #fff;
+    background-color: #f0f0f0; /* Desktop background color */
     color: #333;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
@@ -437,14 +437,6 @@ button[type="submit"]:hover {
 }
 
 
-
-
-
-
-
-
-
-
 /* MOBILE VIEW FORMATTING */
 @media screen and (max-width: 600px) {
     .contact-bar{
@@ -481,6 +473,7 @@ button[type="submit"]:hover {
     .intro p, .intro h2 {
         left: 10%;
     }
+    
 }
 
 

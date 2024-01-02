@@ -436,19 +436,7 @@ button[type="submit"]:hover {
 
 /* MOBILE VIEW FORMATTING */
 @media screen and (max-width: 600px) {
-    .night-mode #about-me-container {
-        background-color: #222,
-    } 
-    .night-mode .page{
-        background-color: #333;
-    }
-    .night-mode .project-card{
-        background-color: rgba(230, 230, 230, 1);
-    }
-    .night-mode .about-me, .skills{
-        background: #000;
-    }
-    
+
     .contact-bar{
         bottom: 0;
     }

@@ -10,7 +10,7 @@
         <nav class="navbar" id="navbar">
             <a href="#about-me-container" id="nava">About Me</a>
             <!-- <a href="#links">Links to Projects</a> -->
-            <a href="#projects-container" id="nava">Project Experience</a>
+            <a href="#projects-container" id="nava">Project</a>
             <a href="#skills-container" id="nava">Skills</a>
             <a href="#contacts-container" id="nava">Contact Me</a>
         </nav>
@@ -36,6 +36,9 @@
             <div id="about-me" class="about-me">
                 <h2>About Me</h2>
                 <div class="about-me-content">
+                    <button id="night-mode-toggle">Night Mode</button>
+
+
                     <div class="about-me-text">
                         <p>I'm currently a senior at the University of Michigan: Ann Arbor's College of Engineering pursuing a Bachelor's of Science in Engineering with a major in Computer Science  and a Business minor. While I do have a passion for technology, I pursue a range of interests that speak to my diverse talents and passions.</p>
                         <p>I am fascinated by car mechanics and physics, and I have a love for cooking. Additionally, I enjoy car photography and fitness, and I find joy in playing the guitar. These hobbies demonstrate my creative side and ability to balance different aspects of life.</p>
@@ -57,7 +60,7 @@
 
         <div class ="page" id = "projects-container"> 
             <section  id="projects" class="projects">
-                <h2 style="position:relative;left: 20%;top:10%;color: white;">Project Experience</h2>
+                <h2 class="projects-headline"">Project Experience</h2>
                 <div class="project-grid">
                     <div class="project-card">
                         <div class="project-title">
@@ -259,4 +262,15 @@
 
 
     </body>
+
+    
 </html>
+
+<script>
+    const nightModeToggle = document.getElementById('night-mode-toggle');
+    const body = document.body;
+  
+    nightModeToggle.addEventListener('click', () => {
+      body.classList.toggle('night-mode');
+    });
+</script>

@@ -1,286 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Malik's Portfolio</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <nav class="navbar" id="navbar">
-            <a href="#about-me-container" id="nava">About Me</a>
-            <!-- <a href="#links">Links to Projects</a> -->
-            <a href="#projects-container" id="nava">Project</a>
-            <a href="#skills-container" id="nava">Skills</a>
-            <a href="#contacts-container" id="nava">Contact Me</a>
-        </nav>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malik's Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Add Bootstrap CSS for better styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add particle.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
 
-        
-        <div class ="page">
-            <div class="intro">
-                <h2>Hello, World</h2>
-                <p style="font-size: 40px;">I'm Sam Malik</p>
-                <p>Software Engineer</p>
+<body>
+    <nav class="navbar" id="navbar">
+        <a href="#about-me-container" id="nava">About Me</a>
+        <a href="#projects-container" id="nava">Projects</a>
+        <a href="#skills-container" id="nava">Skills</a>
+        <a href="#contacts-container" id="nava">Contact Me</a>
+    </nav>
+
+    <div class="page" id="main-page">
+        <div id="particles-js" class="particle-container"></div>
+        <div class="intro">
+            <h2>Hello, World</h2>
+            <p style="font-size: 40px;">I'm Sam Malik</p>
+            <p id="role" style="font-size: 20px;">A <span class="dynamic-text">Software Developer</span></p>
+            <br>
+            <a href="/icons/Resume.pdf" target="_blank" style="border-radius:20px" class="btn btn-outline-light btn-round">VIEW CV</a>
+        </div>
+    </div>
+
+    <div class="page" id="about-me-container">
+        <div id="about-me" class="about-me">
+            <h2>About Me</h2>
+            <div class="about-me-content">
+                <!-- Smaller about me text -->
+                <div class="about-me-text">
+                    <p>I'm a recent graduate from the University of Michigan: Ann Arbor's College of Engineering pursuing a Bachelor's of Science in Engineering with a major in Computer Science with a focus in Businesss. While I do have a passion for technology, I pursue a range of interests that speak to my diverse talents and passions. I love tech, car mechanics, cooking, and photography. Let's connect!</p>
+                </div>
+                <button class="btn btn-primary" id="night-mode-toggle">Night Mode</button>
+                <br>
+                <div class="icons">
+                    <a href="https://www.instagram.com/m4lik.sm"><img src="icons/insta2.svg" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
+                    <a href="https://github.com/sammalik111"><img src="icons/github.svg" alt="GitHub"></a>
+                </div>
+                
             </div>
         </div>
+    </div>
 
 
+    <!-- Project Experience Section -->
+    <div class="page" id="projects-container">
+        <section id="projects" class="projects">
+            <h2 class="projects-headline">Project Experience</h2>
+            <div class="project-grid">
+
+                <div class="project-card main-project-card" id="main-project-card">
+                    <div class="project-title">
+                        <div>HumanShape 3D modeling</div>
+                        <div class="card-text">
+                            <div class="card-info-container">
+                                <div class="left-div">ThreeJS, Javascript</div>
+                                <div class="right-div">SEPT 2023 - MAR 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        A fully functioning online hosted website with a 3D model of a human body that can be manipulated and viewed from all angles,
+                        the model can be changed to different body types and sizes. The website is hosted on a server and can be accessed by anyone, and
+                        based on the user's input, a 3D wheelchair model is generated to be used for personal use or custom ordering.
+                    </div>
+                    <div class="link-list">
+                        <a href="https://humanshape.org/WheelchairTool/">HumanShape</a>
+                    </div>
+                </div>
+                
 
 
+                <div class="project-card">
+                    <div class="project-title">
+                        <div>Multi Stage Pipeline Processor</div>
+                        <div class="card-text">
+                            <div class="card-info-container">
+                                <div class="left-div">C, LegV8</div>
+                                <div class="right-div">MAR 2022</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        A simulator for the processes of a multi-stage processor pipeline. Firstly takes an assembly file in LegV8 assembly language 
+                        and assembles it into machine code in C. Then uses the output from machine code and simulates a processor that takes in commands 
+                        to update and access a virtual processor registry and stack. Debugged using many edge.
+                    </div>
+                    <div class="link-list">
+                        <a href="#">No Link Available</a>
+                    </div>
+                </div>
 
-        <div class ="page" id = "about-me-container">
-            <div class = "about-me-image">
-                <img style="width: 100%;height: 100%;" src="icons/me.jpeg" alt="lahore">
+                <div class="project-card">
+                    <div class="project-title">
+                        <div>Malik Industries</div>
+                        <div class="card-text">
+                            <div class="card-info-container">
+                                <div class="left-div">React, NextJS, Sanity, Stripe</div>
+                                <div class="right-div">JUN 2022</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        An interactive website for e-commerce. Programmed using React JS and Next JS framework in conjunction with Sanity IO to store a database
+                        of products that can be managed and easily updated using the Sanity client dashboard in addition to Stripe to utilize real-time payments 
+                        from active users on the website with user feedback using Toast API.
+                    </div>
+                    <div class="link-list">
+                        <a href="https://github.com/sammalik111/malik_Industries">Malik Industries</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">
+                        <div>Would You Rather?</div>
+                        <div class="card-text">
+                            <div class="card-info-container">
+                                <div class="left-div">React, NodeJS, MongoDB, JavaScript, AJAX requests</div>
+                                <div class="right-div">OCT 2018</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        Collaborated with a team to create a website that mimics an online game where you choose between two options
+                        with a functioning comments section, search bar, a working database, and profile options that have login credentials and store session information.
+                        You can store personal information that can be used even after logged out, and interact with other users all stored on a MongoDB server.
+                    </div>
+                    <div class="link-list">
+                        <a href="https://github.com/sammalik111/Would-You-Rather-">Would You Rather?</a>
+                    </div>
+                </div>
+                
+                
             </div>
-            <div id="about-me" class="about-me">
-                <h2>About Me</h2>
-                <div class="about-me-content">
-                    <!-- give this button a bootstrap btn style -->
-                    <button class="btn btn primary" id="night-mode-toggle">Night Mode</button>
-                    <!-- <button class="btn btn primary" >Night Mode</button> -->
+        </section>
+    </div>
 
-
-                    <div class="about-me-text">
-                        <p>I'm currently a senior at the University of Michigan: Ann Arbor's College of Engineering pursuing a Bachelor's of Science in Engineering with a major in Computer Science  and a Business minor. While I do have a passion for technology, I pursue a range of interests that speak to my diverse talents and passions.</p>
-                        <p>I am fascinated by car mechanics and physics, and I have a love for cooking. Additionally, I enjoy car photography and fitness, and I find joy in playing the guitar. These hobbies demonstrate my creative side and ability to balance different aspects of life.</p>
-                        <p>Feel free to reach out to me if you have any questions or collaboration opportunities!</p>
-                    </div>
-                    <div class="icons">
-                        <a href="https://www.instagram.com"><img src="icons/insta.png" alt="Instagram"></a>
-                        <a href="https://www.linkedin.com"><img src="icons/linkedin.png" alt="LinkedIn"></a>
-                        <a href="https://www.github.com"><img src="icons/github.png" alt="GitHub"></a>
-                    </div>                                   
-                </div>
+    <div class="page" id="skills-container">
+        <section id="skills" class="skills">
+            <h2>Relevant Skills</h2>
+            <div class="skill-list">
+                <p>Javascript</p>
+                <p>C#</p>
+                <p>C++</p>
+                <p>C#</p>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>NodeJS</p>
+                <p>React JS</p>
+                <p>Sanity IO</p>
+                <p>Stripe</p>
+                <p>VS Code</p>
+                <p>Xcode</p>
+                <p>Unity</p>
+                <p>Linux Shell</p>
+                <p>Photoshop</p>
+                <p>Adobe Illustrator</p>
+                <p>LaTex</p>
+                <p>Python</p>
+                <p>R Studio</p>
+                <p>Java</p>
+                <p>VMware</p>
+                <p>Firebase</p>
+                <p>Bashscripting</p>
+                <p>Overleaf</p>
+                <p>Docker</p>
+                <p>ThreeJS</p>
+                <p>Warp Terminal</p>
+                <p>OpenJSCad</p>
+                <p>NumPy</p>
+                <p>Git</p>
+                <p>SQL</p>
+                <p>python sockets</p>
+                <p>Autopsy</p>
+                <p>GDB</p>
+                <p>Stripe</p>
+                <p>Figma</p>
             </div>
-        </div>
+        </section>
+    </div>
 
-
-
-
-
-
-        <div class ="page" id = "projects-container"> 
-            <section  id="projects" class="projects">
-                <h2 class="projects-headline"">Project Experience</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-title">
-                            <div>Stock Exchange</div>
-                            <div class="card-text">
-                                <div class="card-info-container">
-                                    <div class="left-div">C++</div>
-                                    <div class="right-div">JUN 2022</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-description">Programmed a stock exchange simulator that determines the best performing stocks, 
-                            most money to be made on each stock, and average shares/profit each trader made by reading information from a 
-                            CSV file logging sales of all stocks in a day. Debugged hundreds of lines of code using 30 different test files, 
-                            with up to 100,000 sales to test to ensure accuracy. Designed the program using C++ with different command line 
-                            options that output information defined above in a single executable that can run and test very large files in less than 8 seconds.
-                        </div>
-                        <div class="link-list">
-                            <a href="">No Link Available</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-title">
-                            <div> Multi Stage Pipeline Processor</div>
-                            <div class="card-text">
-                                <div class="card-info-container">
-                                    <div class="left-div">C, LegV8</div>
-                                    <div class="right-div">MAR 2022</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-description">Programmed a simulator for the processes of a multi-stage processor pipeline. The 
-                            program works in two stages. The first stage takes an assembly file in LegV8 assembly language and assembles it 
-                            into machine code in C language. Then the second stage uses the output from machine code and simulates a computer 
-                            processor that takes in commands to update and access a virtual processor registry and stack. Debugged using many edge 
-                            test cases that ensured that the program accounts for data and control hazards and stalls the pipeline for the fastest execution time possible.
-                        </div>
-                        <div class="link-list">
-                            <a href="">No Link Available</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-title">
-                            <div>Malik Industries</div>
-                            <div class="card-text">
-                                <div class="card-info-container">
-                                    <div class="left-div">React,NextJS,Sanity,Stripe</div>
-                                    <div class="right-div">JUN 2022</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-description">Created an interactive website for e-commerce. Programmed using React JS and Next JS framework in conjunction with
-                            Sanity to store a database of products that can be managed and easily updated using the Sanity client dashboard in addition to Stripe to
-                            utilize real-time payments from active users on the website. Designed a feature on the website using the Toast API to notify users when a 
-                            transaction is completed.
-                        </div>
-                        <div class="link-list">
-                            <a href="https://github.com/sammalik111/malik_Industries">Malik Industries</a>
-                        </div>
-                        
-                    </div>
-                    <div class="project-card">
-                        <div class="project-title">
-                            <div>Would You Rather?</div>
-                            <div class="card-text">
-                                <div class="card-info-container">
-                                    <div class="left-div">React,NodeJS,MongodDB</div>
-                                    <div class="right-div">OCT 2018</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-description">Collaborated with a team to create a website that mimics an online game where you choose between two options 
-                            with a functioning comments section, search bar, a working database, and profile options that have login credentials and store session information.
-                            Programmed 20,000 lines of code in Javascript and NodeJS that redirect users around the website using AJAX requests, store personal information 
-                            that can be used even after logged out, and interact with other users all stored on a MongoDB server.
-                        </div>
-                        <div class="link-list">
-                            <a href="https://github.com/sammalik111/Would-You-Rather-">Would-You-Rather?</a>
-                        </div>     
-                    </div>
-                    <div class="project-card">
-                        <div class="project-title">
-                            <div>Sound Survivor</div>
-                            <div class="card-text">
-                                <div class="card-info-container">
-                                    <div class="left-div">C#,Unity</div>
-                                    <div class="right-div">JUN 2019</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-description">Programmed a 2D platform game using NodeJS where the player has the ability to pick up powers & escape the dimension
-                            they're trapped in. Designed multiple game scenes with cinematic effects in the Unity engine created with C# and JavaScript.
-                        </div>
-                        <div class="link-list">
-                            <a href="https://github.com/sammalik111/sound-survivor">Sound Survivor</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-title">
-                            <div>Convolutions</div>
-                            <div class="card-text">
-                                <div class="card-info-container">
-                                    <div class="left-div">Python,Bashscript</div>
-                                    <div class="right-div">OCT 2023</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-description">An ongoing development project testing Convolutional nueral networks and image interpretation. Using different 
-                            forms of kernels on a variable amount of convolutional layers, this project is meant to test the ability for a program to interpret images 
-                            and output new images
-                        </div>
-                        <div class="link-list">
-                            <a href="https://github.com/sammalik111/convolutions">Convolutions</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-
-
-
-
-
-        <div class ="page" id = "skills-container"> 
-            <section  id="skills" class="skills">
-                <h2>Relevant Skills</h2>
-                <div class="skill-list">
-                    <p>Javascript</p>
-                    <p>C#</p>
-                    <p>C++</p>
-                    <p>HTML</p>
-                    <p>CSS</p>
-                    <p>NodeJS</p>
-                    <p>React JS</p>
-                    <p>Sanity IO</p>
-                    <p>Stripe</p>
-                    <p>VS Code</p>
-                    <p>Xcode</p>
-                    <p>Unity</p>
-                    <p>Linux Shell</p>
-                    <p>Photoshop</p>
-                    <p>Adobe Illustrator</p>
-                    <p>LaTex</p>
-                    <p>Python</p>
-                    <p>R</p>
-                    <p>R Studio</p>
-                    <p>java</p>
-                    <p>VMware</p>
-                    <p>Firebase</p>
-                    <p>bashscript</p>
-                    <p>overleaf</p>
-                </div>
-            </section>
-        </div>
-
-
-
-
-
-        <div class ="page" id = "contacts-container"> 
-            <section class="contact-info">
-                <div style="display: flex;flex-direction: column;">
-                    <h2>Contact Information</h2>
-                    <p style="color:grey;margin-top: 0px;">Get in touch below!</p>
-                </div>
-                <div class="contact-info-list">
-                    <p>Email: shahmeer787@live.com</p>
-                    <p>Phone: +1 (760) 212-0696</p>
-                </div>
-            </section>
-            <section class="contact-form">
-                <h2>Contact Form</h2>
-                <form action="submit_form.php" method="post">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+    <div class="page" id="contacts-container">
+        <section class="contact-info">
+            <div class="contact-header">
+                <h2>Contact Information</h2>
+                <p class="contact-description">Get in touch below!</p>
+            </div>
+            <div class="contact-info-list">
+                <p><strong>Email:</strong> shahmeer787@live.com</p>
+                <p><strong>Phone:</strong> +1 (760) 212-0696</p>
+            </div>
+        </section>
+    </div>
     
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-    
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-    
-                    <button type="submit">Submit</button>
-                </form>
-            </section>
+
+    <div class="footer">
+        <div class="icons">
+            <a href="https://www.instagram.com/m4lik.sm"><img src="icons/insta2.svg" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://github.com/sammalik111"><img src="icons/github.svg" alt="GitHub"></a>
         </div>
+        <br>
+        <p>Made by Sam Malik</p>
+    </div>
 
+    <!-- Add Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="/js/script.js"></script>
+</body>
 
-
-        <div class="footer">
-            <div class="icons">
-                <a href="https://www.instagram.com"><img src="icons/insta.png" alt="Instagram"></a>
-                <a href="https://www.linkedin.com"><img src="icons/linkedin.png" alt="LinkedIn"></a>
-                <a href="https://www.github.com"><img src="icons/github.png" alt="GitHub"></a>
-            </div> 
-            <p>Made by Sam Malik</p>          
-        </div>
-
-
-    </body>
-
-    
 </html>
 
 
 
 
 
-<script>
-    const nightModeToggle = document.getElementById('night-mode-toggle');
-    const body = document.body;
-  
-    nightModeToggle.addEventListener('click', () => {
-      body.classList.toggle('night-mode');
-    });
-</script>
+<!-- UNSURE IF I WANT TO KEEP THIS CODE SNIPPET
 
 
-<!-- add bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<div class="project-card">
+    <div class="project-title">
+        <div>Sound Survivor</div>
+        <div class="card-text">
+            <div class="card-info-container">
+                <div class="left-div">C#, Unity</div>
+                <div class="right-div">JUN 2019</div>
+            </div>
+        </div>
+    </div>
+    <div class="project-description">
+        Programmed a 2D platform game using NodeJS where the player has the ability to pick up powers & escape the dimension
+        they're trapped in. Designed multiple game scenes with cinematic effects in the Unity engine created with C# and JavaScript.
+    </div>
+    <div class="link-list">
+        <a href="https://github.com/sammalik111/sound-survivor">Sound Survivor</a>
+    </div>
+</div>
+                
+
+
+<div class="project-card">
+    <div class="project-title">
+        <div>Convolutions</div>
+        <div class="card-text">
+            <div class="card-info-container">
+                <div class="left-div">Python, Bashscript</div>
+                <div class="right-div">OCT 2023</div>
+            </div>
+        </div>
+    </div>
+    <div class="project-description">
+        An ongoing development project testing Convolutional neural networks and image interpretation. Using different
+        forms of kernels on a variable amount of convolutional layers, this project is meant to test the ability for a program to interpret images
+        and output new images.
+    </div>
+    <div class="link-list">
+        <a href="https://github.com/sammalik111/convolutions">Convolutions</a>
+    </div>
+</div>
+
+
+<div class="project-card">
+    <div class="project-title">
+        <div>Stock Exchange</div>
+        <div class="card-text">
+            <div class="card-info-container">
+                <div class="left-div">C++</div>
+                <div class="right-div">JUN 2022</div>
+            </div>
+        </div>
+    </div>
+    <div class="project-description">
+        A stock exchange simulator that determines the best performing stocks,most money to be made on each stock 
+        by reading information from a CSV file logging sales of all stocks in a day. Debugged hundreds of lines of 
+        code using 30 different test files, with up to 100,000 sales to test to ensure accuracy.
+    </div>
+    <div class="link-list">
+        <a href="#">No Link Available</a>
+    </div>
+</div>
+
+-->

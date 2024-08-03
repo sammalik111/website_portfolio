@@ -1,3 +1,11 @@
+/* color schemes  */
+/* #404d69  lighter grey blue */
+/* #282c34  grey blue */
+/* #1e1e1e  darker grey blue */
+/* #e0e0e0  light grey */
+
+
+
 /* General Styles */
 body {
     
@@ -58,7 +66,7 @@ body.night-mode .navbar a {
 }
 
 section > h2 {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 
@@ -141,6 +149,122 @@ body.night-mode #night-mode-toggle {
     background-color: #666; /* Button background for night mode */
 }
 
+
+
+
+
+/* Research Section Styles */
+#research-container {
+    max-width: 60%; /* Max width set to 80% of the screen */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+    color:black;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for night mode */
+}
+
+body.night-mode #research-container {
+    background-color: #1e1e1e; /* Darker background for night mode */
+    color: #e0e0e0; /* Maintain light text color */
+}
+
+#research-container h2 {
+    font-size: 32px; /* Slightly smaller for a minimal look */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; /* Centered heading for balance */
+}
+
+#research-container .intro-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #cccccc; /* Softer grey for intro text */
+    text-align: center; /* Center text for uniformity */
+}
+
+.research-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards within the container */
+    gap: 20px;
+}
+
+.research-card {
+    /* background-color: #1e1e1e; */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for a clean look */
+    padding: 20px;
+    flex: 1 1 calc(50% - 20px); /* Responsive card width */
+    min-width: 300px; /* Minimum width for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    color: #e0e0e0; /* Consistent text color */
+}
+
+body.night-mode .research-card {
+    background-color: #111; /* Darker card background for night mode */
+}
+
+.research-card:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.research-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff; /* White text for card titles */
+    margin-bottom: 10px;
+}
+
+.card-info-container {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    color: #b0b0b0; 
+    margin-bottom: 15px;
+}
+
+.research-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: black; 
+    margin-bottom: 20px;
+}
+
+body.night-mode .research-description {
+    color: #e0e0e0; /* Maintain readability in night mode */
+}
+
+.link-list a {
+    color: #404d69; /* Muted light blue for links */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link-list a:hover {
+    color: #576f8a; /* Slightly brighter blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    #research-container {
+        padding: 20px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .research-card {
+        flex: 1 1 100%; /* Full width on small screens */
+        min-width: auto; /* Remove minimum width */
+    }
+}
+
+
+
+
+
+
+
 /* Projects Section */
 .project-grid {
     display: flex;
@@ -157,7 +281,17 @@ body.night-mode #night-mode-toggle {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: calc(33.333% - 20px);
-    transition: transform 0.3s ease-in-out, background-color 0.5s ease; /* Include transition for night mode */
+    margin: 0px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+    opacity: 1; /* Start as visible */
+    transform: translateY(0); /* Default position */
+    display: inline-block; /* Ensure cards are aligned in a grid */
+    vertical-align: top; /* Align vertically in case of different heights */
+}
+
+.project-card.hide {
+    opacity: 0; /* Fade out */
+    transform: translateY(20px); /* Slide down slightly */
 }
 
 body.night-mode .project-card {
@@ -172,83 +306,24 @@ body.night-mode .project-card {
 
 
 
-/* Main Project Card Styling */
-#main-project-card {
-    background-color: #282c34; 
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
-    width: calc(100% - 20px); 
-    transform: scale(1); 
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
-    border: 2px solid #282c34; 
-    margin-bottom: 20px;
-    color: white;
-}
-
-body.night-mode #main-project-card {
-    background-color: #111; /* Darker main project card for night mode */
-    border-color: #222; /* Change border color for night mode */
-}
-
-#main-project-card:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-}
-
-#main-project-card .project-title {
-    font-size: 24px;
-    font-weight: bold; 
-    color: white;
-    padding: 20px;
-    background-color: #282c34; 
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    text-align: center; 
-}
-
-body.night-mode #main-project-card .project-title {
-    background-color: #1e1e1e; /* Darker background for title in night mode */
-}
-
-#main-project-card .project-description {
-    padding: 20px 100px;
-    font-size: 16px;
-    line-height: 1.6; 
-    color: #333; 
-    background-color: #eeeeff; 
-}
-
-body.night-mode #main-project-card .project-description {
-    background-color: #111; /* Darker description background for night mode */
-    color: #e0e0e0; /* Lighter text color for night mode */
-}
-
-#main-project-card .link-list a {
-    display: inline-block;
-    background-color: #282c34; 
-    color: white; 
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease; 
-    margin-top: 10px; 
-}
-
-body.night-mode #main-project-card .link-list a {
-    background-color: #444; /* Darker link background for night mode */
-}
-
-#main-project-card .link-list a:hover {
-    background-color: #333; 
-    color: #aaaaff; 
-}
-
-body.night-mode #main-project-card .link-list a:hover {
-    background-color: #555; /* Inverted hover effect for night mode */
-}
-
 /* Project Titles */
+
+body.night-mode .filter-button {
+    background-color: #333; /* Darker background for filter buttons in night mode */
+    color: #e0e0e0; /* Light text color for night mode */
+    border-color: #555;
+}
+
+body.night-mode .filter-button:active {
+    background-color: #999; /* Darker background for filter buttons in night mode */
+    color: #e0e0e0; /* Light text color for night mode */
+    border-color: #555;
+}
+
+.projects-filter-container{
+    margin-bottom: 80px;
+}
+
 .project-title {
     padding: 15px;
     font-size: 20px;
@@ -302,23 +377,30 @@ body.night-mode .link-list {
 
 
 
-
-
 /* Skills Section */
 
-#section-skills {
-    display: flex; /* Use flexbox to easily center content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically if needed */
-    height: 100%; /* Ensure it occupies the full height of its parent, if necessary */
+#skills-container {
+    padding: 50px;
+    text-align: center;
+}
+
+.skill-category {
+    margin-bottom: 40px;
+}
+
+.skill-category h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #404d69; /* Muted dark grey-blue */
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .skill-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
-    margin-top: 20px;
-    max-width: 70%;
+    max-width: 60%;
     margin: 0 auto; /* Center the grid horizontally within its parent */
     justify-items: center; /* Center items within each grid cell */
 }
@@ -331,6 +413,7 @@ body.night-mode .link-list {
     transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for night mode */
     width: 100%;
     text-align: center; /* Center text within each skill box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
 }
 
 body.night-mode .skill-list p {

@@ -1,146 +1,204 @@
-// Night mode toggle
-const nightModeToggle = document.getElementById('night-mode-toggle');
-const body = document.body;
+import { skills, qualifications, projects } from './data.js';
 
-nightModeToggle.addEventListener('click', () => {
-    body.classList.toggle('night-mode');
+document.addEventListener('DOMContentLoaded', function () {
+    // Inject School Qualifications by default
+    injectQualifications('school');
+
+    // Inject Skills
+    injectSkills();
+
+    // Inject Projects
+    injectProjects();
+
+    // Add event listeners to qualification filters
+    document.getElementById('SchoolFilter').addEventListener('click', () => {
+        console.log('SchoolFilter clicked');
+        filterQualifications('school');
+    });
+    document.getElementById('WorkFilter').addEventListener('click', () => {
+        console.log('WorkFilter clicked');
+        filterQualifications('work');
+    });
 });
 
+// Function to inject qualifications based on type (school/work)
+function injectQualifications(type) {
+    const timelineContainer = document.querySelector('.timeline');
+    timelineContainer.innerHTML = ''; // Clear current qualifications
 
-document.addEventListener('DOMContentLoaded', () => {
-    const textElement = document.querySelector('.dynamic-text');
-    const roles = ["Software Developer", "Programmer", "3D Modeler", "Lab Researcher"];
-    let index = 0;
+    qualifications.forEach((qualification, index) => {
+        if (qualification.type === type) {
+            const timelineItem = document.createElement('div');
 
-    function changeText() {
-        textElement.classList.add('fade-out'); // Start fading out
+            // Alternate between 'left' and 'right' classes based on index
+            timelineItem.classList.add('timeline-item', index % 2 === 0 ? 'left' : 'right');
+            timelineItem.innerHTML = `
+                <div class="timeline-date">${qualification.date}</div>
+                <div class="timeline-content">
+                    <h3>${qualification.title}</h3>
+                    <p>${qualification.institution}</p>
+                    <p>${qualification.description}</p>
+                </div>
+            `;
+            timelineContainer.appendChild(timelineItem);
+        }
+    });
+}
 
-        setTimeout(() => {
-            index = (index + 1) % roles.length; // Move to the next role
-            textElement.textContent = roles[index];
-            textElement.classList.remove('fade-out'); // Remove fade-out
-            textElement.classList.add('fade-in'); // Start fading in
+// Filter function for qualifications
+function filterQualifications(type) {
+    injectQualifications(type);
 
-            setTimeout(() => {
-                textElement.classList.remove('fade-in'); // Cleanup
-            }, 1000); // Match fade-in duration
-        }, 1000); // Match fade-out duration
+    // Add active class to the clicked button and remove from others
+    document.querySelectorAll('.filterbutton').forEach(button => {
+        button.classList.remove('active');
+    });
+    document.getElementById(type === 'school' ? 'SchoolFilter' : 'WorkFilter').classList.add('active');
+}
+
+// Inject Skills functionality remains unchanged
+function injectSkills() {
+    const skillsContainer = document.querySelector('.skills-grid');
+    const skillsOutput = document.getElementById('skills-output');
+
+    // Function to reset the skills list to its default empty state
+    function resetSkillsList() {
+        skillsOutput.innerHTML = '<p>Select a category to view skills</p>';
     }
 
-    setInterval(changeText, 4000); // Change text every 4 seconds
-});
+    // Initially, the skills list is empty
+    resetSkillsList();
 
+    // Populate the skills categories
+    skills.forEach((skillCategory) => {
+        const dropdown = document.createElement('div');
+        dropdown.classList.add('dropdown');
 
+        // Create the dropdown header
+        dropdown.innerHTML = `
+            <div class="dropdown-header">
+                <div class="dropdown-title">
+                    <h3>${skillCategory.category}</h3>
+                    <p>${skillCategory.experience}</p>
+                </div>
+                <button class="dropdown-arrow">▶</button>
+            </div>
+        `;
 
+        // Add the category to the grid
+        skillsContainer.appendChild(dropdown);
 
-// Particle.js configuration
-particlesJS('particles-js', {
-    particles: {
-        number: {
-            value: 100,
-            density: {
-                enable: true,
-                value_area: 800
-            }
-        },
-        color: {
-            value: '#ffffff'
-        },
-        shape: {
-            type: 'circle',
-            stroke: {
-                width: 0,
-                color: '#000000'
-            },
-            polygon: {
-                nb_sides: 5
-            },
-            image: {
-                src: 'img/github.svg',
-                width: 100,
-                height: 100
-            }
-        },
-        opacity: {
-            value: 0.5,
-            random: false,
-            anim: {
-                enable: false,
-                speed: 1,
-                opacity_min: 0.1,
-                sync: false
-            }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: {
-                enable: false,
-                speed: 40,
-                size_min: 0.1,
-                sync: false
-            }
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#ffffff',
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 6,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false,
-            attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200
-            }
+        // Handle click to populate skills on the right
+        dropdown.addEventListener('click', () => {
+            // Clear the current skills list
+            skillsOutput.innerHTML = '';
+
+            // Populate the skills
+            skillCategory.skillsList.forEach(skill => {
+                const skillItem = document.createElement('div');
+                skillItem.classList.add('skill-row');
+
+                // Skill name and percentage
+                skillItem.innerHTML = `
+                    <span>${skill.name}</span>
+                    <span class="skill-percentage">${skill.percentage}%</span>
+                `;
+
+                // Create skill bar container
+                const skillBar = document.createElement('div');
+                skillBar.classList.add('skill-bar');
+
+                // Create skill bar fill based on percentage
+                const skillFill = document.createElement('div');
+                skillFill.classList.add('skill-fill');
+                skillFill.style.width = `${skill.percentage}%`;
+
+                // Append fill to bar
+                skillBar.appendChild(skillFill);
+
+                // Append skill row and skill bar to output
+                skillsOutput.appendChild(skillItem);
+                skillsOutput.appendChild(skillBar);
+            });
+        });
+    });
+
+    // Reset the skills list when clicking outside categories
+    document.addEventListener('click', function (event) {
+        const isDropdown = event.target.closest('.dropdown');
+        if (!isDropdown) {
+            resetSkillsList();
         }
-    },
-    interactivity: {
-        detect_on: 'canvas',
-        events: {
-            onhover: {
-                enable: true,
-                mode: 'repulse'
-            },
-            onclick: {
-                enable: true,
-                mode: 'push'
-            },
-            resize: true
-        },
-        modes: {
-            grab: {
-                distance: 400,
-                line_linked: {
-                    opacity: 1
-                }
-            },
-            bubble: {
-                distance: 400,
-                size: 40,
-                duration: 2,
-                opacity: 8,
-                speed: 3
-            },
-            repulse: {
-                distance: 200,
-                duration: 0.4
-            },
-            push: {
-                particles_nb: 4
-            },
-            remove: {
-                particles_nb: 2
+    });
+}
+
+// Inject Projects functionality remains unchanged
+function injectProjects() {
+    const projectGrid = document.querySelector('.project-grid');
+
+    // Populate all projects initially
+    projects.forEach((project) => {
+        const projectCard = document.createElement('div');
+        projectCard.classList.add('project-card', project.category);
+        projectCard.innerHTML = `
+            <div class="project-title">
+                <div>${project.title}</div>
+                <div class="card-text">
+                    <div class="card-info-container">
+                        <div class="left-div">${project.tech}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-description">
+                ${project.description}
+            </div>
+            <div class="link-list">
+                <a href="${project.link}">${project.link ? 'View Project' : 'No Link Available'}</a>
+            </div>
+        `;
+        projectGrid.appendChild(projectCard);
+    });
+
+    // Add event listeners to filter buttons
+    document.getElementById('AllFilter').addEventListener('click', () => {
+        filterProjects('ALL');
+    });
+
+    document.getElementById('CFilter').addEventListener('click', () => {
+        filterProjects('C');
+    });
+
+    document.getElementById('JavascriptFilter').addEventListener('click', () => {
+        filterProjects('Javascript');
+    });
+
+    document.getElementById('PythonFilter').addEventListener('click', () => {
+        filterProjects('Python');
+    });
+
+    function filterProjects(category) {
+        document.querySelectorAll('.project-card').forEach(project => {
+            if (category === 'ALL' || project.classList.contains(category)) {
+                project.style.display = 'inline-block';
+            } else {
+                project.style.display = 'none';
             }
-        }
-    },
-    retina_detect: true
+        });
+    }
+}
+
+document.getElementById('night-mode-toggle').addEventListener('click', function() {
+    const darkModeLink = document.getElementById('dark-mode-stylesheet');
+
+    if (!darkModeLink) {
+        // If dark mode stylesheet is not added yet, add it
+        const link = document.createElement('link');
+        link.id = 'dark-mode-stylesheet';
+        link.rel = 'stylesheet';
+        link.href = 'css/darkmode.css';
+        document.head.appendChild(link);
+    } else {
+        // If dark mode is active, remove the stylesheet
+        darkModeLink.remove();
+    }
 });

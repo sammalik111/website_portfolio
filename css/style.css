@@ -723,3 +723,94 @@ section {
     padding-bottom: 150px;
 }
 
+
+
+
+
+/* General styling adjustments for mobile */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* Adjusted font size for smaller screens */
+        line-height: 1.4; /* Tighter line spacing */
+    }
+
+    .container {
+        width: 90%; /* Allow more flexibility */
+        padding: 0 10px; /* Add side padding */
+    }
+
+    .navbar-left, .navbar-right {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /* Hero Section */
+    #main-page {
+        flex-direction: column; /* Stack content vertically */
+        gap: 20px; /* Reduce gap */
+        margin-top: 70px; /* Adjust for navbar */
+    }
+
+    .main-page-content, .icons {
+        width: 100%; /* Full width for content */
+    }
+
+    .image-main {
+        width: 40%; /* Adjust image size */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Research Section */
+    .research-section {
+        padding: 20px 0; /* Reduce padding */
+    }
+
+    .research-card {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center-align text */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .research-thumbnail {
+        width: 100%; /* Full width for images */
+        margin: 0 0 15px; /* Adjust margins */
+    }
+
+    /* Timeline Section */
+    .timeline {
+        max-width: 100%; /* Full width for mobile */
+        padding: 0 20px; /* Add padding */
+    }
+
+    /* Skills Section */
+    .skills-layout {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center; /* Center-align for better appearance */
+    }
+
+    /* Projects Section */
+    .project-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 20px; /* Reduce gap */
+    }
+
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        text-align: center; /* Center-align text */
+        padding: 15px 0;
+        height: auto; /* Adjust height */
+    }
+
+    .footer-left {
+        width: 100%; /* Full width */
+        margin-left: 0; /* Remove margin */
+    }
+
+    .footer-right {
+        justify-content: center; /* Center items */
+        flex-wrap: wrap; /* Allow wrapping for icons */
+        gap: 10px; /* Reduce gap */
+    }
+}

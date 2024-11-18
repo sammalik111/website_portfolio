@@ -10,12 +10,12 @@ export const skills = [
       { name: "Python", percentage: 100 },
       { name: "HTML", percentage: 95 },
       { name: "JavaScript", percentage: 90 },
-      { name: "CSS", percentage: 90 },
+      { name: "Ruby", percentage: 90 },
+      { name: "TypeScript", percentage: 90 },
       { name: "SQL", percentage: 85 },
       { name: "C#", percentage: 75 },
       { name: "Java", percentage: 70 },
-      { name: "R", percentage: 65 },
-      { name: "LaTeX", percentage: 60 }
+      { name: "GO", percentage: 70 }
     ]
   },
   {
@@ -75,11 +75,13 @@ export const skills = [
       { name: "Figma", percentage: 95 },
       { name: "Canva", percentage: 90 },
       { name: "Photoshop", percentage: 80 },
+      { name: "Unit Testing", percentage: 80 },
+      { name: "End-to-End Testing", percentage: 80 },
+      { name: "Project Planning", percentage: 80 },
       { name: "Wireshark", percentage: 75 },
       { name: "Adobe Illustrator", percentage: 75 },
       { name: "Wireframing", percentage: 75 },
-      { name: "Autopsy", percentage: 65 },
-      { name: "R Studio", percentage: 65 }
+      { name: "Autopsy", percentage: 65 }
     ]
   }
 ];
@@ -165,6 +167,17 @@ export const projects = [
           Conducted English training sessions to improve refugees' employability and language proficiency.
           Facilitated acquiring passports and travel documents to aid refugees in relocating to safer countries.
           Prepared refugees for technical interviews by conducting mock interviews with feedback on technical and soft skills.
+      `,
+    },
+    {
+      type: 'work',
+      date: "OCT 2024 - PRESENT",
+      title: "Software Development Engineer LVL 4",
+      institution: "Amazon AWS Foundational Security, Herndon, Virginia",
+      description: `
+          Supported secure solutions for AWS infrastructure, specializing in SSH and WebSocket SSH (WSSH) protocols to enhance remote management 
+          and automation. Optimized secure cloud access and maintained security standards while working with clients to ensure availability, scalability, 
+          and efficiency of their projects relying on AWS software.
       `,
     }
   ];

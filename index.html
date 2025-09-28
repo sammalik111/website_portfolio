@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm Sam Malik</title>
+    <title>I'm Shahmeer Malik</title>
     <link rel="icon" href="icons/m.ico" type="image/x-icon">
     
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ios-theme.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -18,16 +19,16 @@
 
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="#main-page" class="navbar-brand">Sam Malik</a>
+            <a href="#hero-banner" class="navbar-brand">Shahmeer Malik</a>
         </div>
         <div class="navbar-right">
-            <a href="#main-page" class="nav-link">About Me</a>
+            <a href="#hero-banner" class="nav-link">About</a>
             <a href="#qualifications-container" class="nav-link">Qualifications</a>
             <a href="#skills-container" class="nav-link">Skills</a>
             <a href="#research-container" class="nav-link">Research</a>
             <a href="#projects-container" class="nav-link">Projects</a>
-            <a href="#contacts-container" class="nav-link">Contact Me</a>
-            <button style="background: none; border:none" id="night-mode-toggle">
+            <a href="#projects-container" class="nav-link">Projects</a>
+            <button id="night-mode-toggle">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
@@ -35,21 +36,24 @@
 
 
     <div class="container">
-        <section id="main-page">
-            <div class="icons">
-                <a href="https://www.instagram.com/m4lik.sm"><img src="icons/insta2.svg" alt="Instagram"></a>
-                <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
-                <a href="https://github.com/sammalik111"><img src="icons/github.svg" alt="GitHub"></a>
+        <section id="hero-banner" class="hero-banner">
+            <div class="hero-glass">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <img src="icons/me.jpeg" alt="Shahmeer Malik" class="hero-avatar">
+                        <div class="hero-info">
+                            <span>shahmeer787@live.com</span>
+                            <span>(760) 212-0696</span>
+                            <span>Chantilly, VA</span>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <h1>Shahmeer Malik</h1>
+                        <p class="hero-role">Software Development Engineer</p>
+                        <p class="hero-about">I'm a Computer Science graduate from the University of Michigan specializing in secure cloud infrastructure and scalable access solutions. I work with SSH protocols, CI/CD pipelines, and AWS security services to build reliable systems that protect and scale.</p>
+                    </div>
+                </div>
             </div>
-            <div class="main-page-content">
-                <h1>Hi, I'm</h1>
-                <h1>Sam Malik</h1>
-                <p>Software Engineer</p>
-                <p>I'm an alumni from the University of Michigan: Ann Arbor's College of Engineering 
-                in Computer Science with a focus in Businesss. Let's connect!</p>
-                <a class="btn btn-primary" style="width:30%" href="#contacts-container" >Contact Me</a>
-            </div>
-            <img src="icons/me.jpeg" alt="Arrow Down" class="image-main">
         </section>
 
 
@@ -101,7 +105,6 @@
                 <p style="font-size: 12px; color:gray"> I had the opportunity to work with <a href="https://sites.google.com/view/danielpark/">Dr. Daniel Park, PhD </a> at the University of Michigan: Transportation and Research Institute. </p>
                 
                 <div class="research-card">
-                    <img src="icons/UMTRI.png" alt="UMTRI Logo" class="research-thumbnail">
                     <div class="research-details">
                         <div class="card-info-container">
                             <div class="left-div">ThreeJS, Javascript</div>
@@ -137,65 +140,26 @@
                 </div>
             </div>
         </section>
-
-
-        <section id="contacts-container" class="contact-section">
-            <div class="container">
-                <h2>Contact Me</h2>
-                <p style="font-size: 14px; color: gray;">I'm available for inquiries, collaborations, or just to chat. Reach out through the methods below:</p>
-                
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div class="contact-info">
-                            <h4>Email</h4>
-                            <a href="mailto:sammalik@umich.edu">shahmeer787@live.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div class="contact-info">
-                            <h4>Phone</h4>
-                            <p>+1 (760) 212-0696</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="contact-info">
-                            <h4>Location</h4>
-                            <p>Virginia, USA</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/m4lik.sm" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/sammalik111" class="social-icon"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </div>
 
 
     <div class="footer">
         <div class="footer-left">
-            <a href="#main-page" class="navbar-brand">Sam Malik</a>
+            <a href="#hero-banner" class="navbar-brand">Shahmeer Malik</a>
             <p class="navbar-brand">Software Engineer</p>
         </div>
         <div class="footer-right">
-            <a href="#main-page" class="nav-link">About Me</a>
+            <a href="#hero-banner" class="nav-link">About</a>
             <a href="#projects-container" class="nav-link">Projects</a>
-            <a href="#contacts-container" class="nav-link">Contact Me</a>
-            <a href="https://www.instagram.com/m4lik.sm"><img src="icons/insta2.svg" alt="Instagram"></a>
-            <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
-            <a href="https://github.com/sammalik111"><img src="icons/github.svg" alt="GitHub"></a>
+            <a href="mailto:shahmeer787@live.com" class="footer-contact"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+17602120696" class="footer-contact"><i class="fas fa-phone"></i></a>
+            <a href="https://www.linkedin.com/in/Shahmeer-malik-30b3b822b/" class="footer-contact"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Shahmeermalik111" class="footer-contact"><i class="fab fa-github"></i></a>
         </div>
         <br>
         
     </div>
-    <p class="copyright">© 2021 Sam Malik. All rights reserved.</p>
+    <p class="copyright">© 2021 Shahmeer Malik. All rights reserved.</p>
     
 </body>
 </html>

@@ -1,8 +1,8 @@
 import { skills, qualifications, projects } from './data.js';
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Inject School Qualifications by default
-    injectQualifications('school');
+    // Inject Work Experience by default (more relevant for current role)
+    injectQualifications('work');
 
     // Inject Skills
     injectSkills();
@@ -12,13 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add event listeners to qualification filters
     document.getElementById('SchoolFilter').addEventListener('click', () => {
-        console.log('SchoolFilter clicked');
         filterQualifications('school');
     });
     document.getElementById('WorkFilter').addEventListener('click', () => {
-        console.log('WorkFilter clicked');
         filterQualifications('work');
     });
+
+    // Set Work filter as active by default
+    document.getElementById('WorkFilter').classList.add('active');
 });
 
 // Function to inject qualifications based on type (school/work)

@@ -474,6 +474,39 @@
             margin: 0 auto;
         }
 
+        /* ==================== FILTER BUTTONS ==================== */
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
         /* ==================== EXPERIENCE TIMELINE ==================== */
         .timeline {
             position: relative;
@@ -577,7 +610,7 @@
         /* ==================== SKILLS GRID ==================== */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -617,6 +650,11 @@
         .skill-category-title {
             font-size: 1.3rem;
             font-weight: 700;
+        }
+
+        .skill-category-experience {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
         }
 
         .skill-item {
@@ -796,6 +834,13 @@
             font-size: 0.9rem;
         }
 
+        .cert-description {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
         /* ==================== FOOTER ==================== */
         .footer {
             background: rgba(15, 20, 25, 0.8);
@@ -890,6 +935,18 @@
                 width: 50px;
                 height: 50px;
             }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -922,7 +979,7 @@
                 <i class="fas fa-download"></i>
                 <span class="quick-btn-tooltip">Download Resume</span>
             </a>
-            <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/" target="_blank" class="quick-btn">
+            <a href="https://www.linkedin.com/in/Shahmeer-malik-30b3b822b/" target="_blank" class="quick-btn">
                 <i class="fab fa-linkedin"></i>
                 <span class="quick-btn-tooltip">LinkedIn Profile</span>
             </a>
@@ -949,11 +1006,11 @@
                             <div class="stat-label">Years Experience</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-value">15+</div>
+                            <div class="stat-value">25+</div>
                             <div class="stat-label">Technologies</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-value">10+</div>
+                            <div class="stat-value">6+</div>
                             <div class="stat-label">Projects Completed</div>
                         </div>
                     </div>
@@ -999,7 +1056,7 @@
                             </div>
 
                             <div class="card-social">
-                                <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/" target="_blank" class="social-link">
+                                <a href="https://www.linkedin.com/in/Shahmeer-malik-30b3b822b/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                                 <a href="https://github.com/sammalik111" target="_blank" class="social-link">
@@ -1025,55 +1082,14 @@
                 </p>
             </div>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Software Development Engineer</h3>
-                                <div class="timeline-company">Amazon Web Services Security</div>
-                            </div>
-                            <div class="timeline-date">SEP 2024 - DEC 2025</div>
-                        </div>
-                        <p class="timeline-description">
-                            Developing and optimizing secure, scalable access solutions within AWS infrastructure. 
-                            Specializing in SSH, WebSocket-SSH, and Certificate Authority (CA) services with focus 
-                            on cloud access efficiency and compliance.
-                        </p>
-                        <div class="timeline-skills">
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">SSH Protocol</span>
-                            <span class="skill-tag">CI/CD</span>
-                            <span class="skill-tag">Security</span>
-                            <span class="skill-tag">SCRUM</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="work">Work Experience</button>
+                <button class="filter-btn" data-filter="school">Education</button>
+            </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-card">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Software Engineer</h3>
-                                <div class="timeline-company">University of Michigan - UMTRI</div>
-                            </div>
-                            <div class="timeline-date">OCT 2023 - MAY 2024</div>
-                        </div>
-                        <p class="timeline-description">
-                            Built parametric human body modeling platform for hospitals using Vite and ReactJS. 
-                            Consolidated multiple 3D anatomic models from ThreeJS and OpenJSCad libraries for 
-                            commercial export.
-                        </p>
-                        <div class="timeline-skills">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Vite</span>
-                            <span class="skill-tag">ThreeJS</span>
-                            <span class="skill-tag">OpenJSCad</span>
-                            <span class="skill-tag">3D Modeling</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="timeline" id="timeline-container">
+                <!-- Timeline items will be injected by JavaScript -->
             </div>
         </section>
 
@@ -1083,154 +1099,12 @@
                 <div class="section-tag">Technical Arsenal</div>
                 <h2 class="section-title">Skills & Technologies</h2>
                 <p class="section-description">
-                    A comprehensive overview of my technical expertise
+                    A comprehensive overview of my technical expertise across multiple domains
                 </p>
             </div>
 
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-category-header">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="skill-category-title">Programming</h3>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Python</span>
-                            <span class="skill-level">95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">JavaScript/TypeScript</span>
-                            <span class="skill-level">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">C/C++</span>
-                            <span class="skill-level">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-category-header">
-                        <div class="skill-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3 class="skill-category-title">Cloud & DevOps</h3>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">AWS Services</span>
-                            <span class="skill-level">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">CI/CD Pipelines</span>
-                            <span class="skill-level">88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Docker</span>
-                            <span class="skill-level">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-category-header">
-                        <div class="skill-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 class="skill-category-title">Security</h3>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">SSH Protocol</span>
-                            <span class="skill-level">92%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 92%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Network Security</span>
-                            <span class="skill-level">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Encryption</span>
-                            <span class="skill-level">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-category-header">
-                        <div class="skill-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3 class="skill-category-title">Web Development</h3>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">React</span>
-                            <span class="skill-level">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Node.js</span>
-                            <span class="skill-level">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">ThreeJS</span>
-                            <span class="skill-level">88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="skills-grid" id="skills-container">
+                <!-- Skills will be injected by JavaScript -->
             </div>
         </section>
 
@@ -1238,39 +1112,14 @@
         <section id="certifications">
             <div class="section-header">
                 <div class="section-tag">Credentials</div>
-                <h2 class="section-title">Certifications</h2>
+                <h2 class="section-title">Certifications & Education</h2>
                 <p class="section-description">
-                    Professional certifications validating my expertise
+                    Professional certifications and academic achievements
                 </p>
             </div>
 
-            <div class="certs-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-aws"></i>
-                    </div>
-                    <h3 class="cert-name">AWS Cloud Practitioner</h3>
-                    <div class="cert-issuer">Amazon Web Services</div>
-                    <div class="cert-date">2025</div>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-google"></i>
-                    </div>
-                    <h3 class="cert-name">Data Analytics Professional</h3>
-                    <div class="cert-issuer">Google</div>
-                    <div class="cert-date">2022</div>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="cert-name">B.S. Computer Science</h3>
-                    <div class="cert-issuer">University of Michigan</div>
-                    <div class="cert-date">2024</div>
-                </div>
+            <div class="certs-grid" id="certs-container">
+                <!-- Certifications will be injected by JavaScript -->
             </div>
         </section>
 
@@ -1280,79 +1129,19 @@
                 <div class="section-tag">Portfolio</div>
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-description">
-                    Showcasing real-world applications and solutions
+                    Showcasing real-world applications and innovative solutions
                 </p>
             </div>
 
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Multi Cycle Processor Simulator</h3>
-                        <p class="project-description">
-                            Designed a two-stage simulator for a multi-stage processor pipeline that converts 
-                            LegV8 assembly to C machine code with optimized execution times.
-                        </p>
-                        <div class="project-tech">
-                            <span class="skill-tag">C</span>
-                            <span class="skill-tag">LegV8</span>
-                            <span class="skill-tag">Assembly</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link project-link-secondary">
-                                <i class="fab fa-github"></i> Private
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Malik Industries</h3>
-                        <p class="project-description">
-                            E-commerce platform with Sanity CMS for product management and Stripe integration 
-                            for real-time payment processing.
-                        </p>
-                        <div class="project-tech">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">NextJS</span>
-                            <span class="skill-tag">Stripe</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/sammalik111/malik_Industries" target="_blank" class="project-link project-link-primary">
-                                <i class="fas fa-external-link-alt"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">3D Wheelchair Tool</h3>
-                        <p class="project-description">
-                            Parametric 3D modeling platform for patient-specific wheelchair design using 
-                            ThreeJS with real-time manipulation capabilities.
-                        </p>
-                        <div class="project-tech">
-                            <span class="skill-tag">ThreeJS</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">OpenJSCad</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://humanshape.org/WheelchairTool/" target="_blank" class="project-link project-link-primary">
-                                <i class="fas fa-external-link-alt"></i> View Live
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="ALL">All Projects</button>
+                <button class="filter-btn" data-category="C">C/C++</button>
+                <button class="filter-btn" data-category="Javascript">JavaScript</button>
+                <button class="filter-btn" data-category="Python">Python</button>
+            </div>
+            
+            <div class="projects-grid" id="projects-container">
+                <!-- Projects will be injected by JavaScript -->
             </div>
         </section>
 
@@ -1379,7 +1168,7 @@
                     <h4 class="footer-section-title">Connect</h4>
                     <div class="footer-links">
                         <a href="mailto:shahmeer787@live.com" class="footer-link">Email</a>
-                        <a href="https://www.linkedin.com/in/sam-malik-30b3b822b/" target="_blank" class="footer-link">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/Shahmeer-malik-30b3b822b/" target="_blank" class="footer-link">LinkedIn</a>
                         <a href="https://github.com/sammalik111" target="_blank" class="footer-link">GitHub</a>
                         <a href="#" class="footer-link">Download Resume</a>
                     </div>
@@ -1392,7 +1181,182 @@
     </div>
 
     <script>
-        // 3D Background Animation
+        // ==================== DATA FROM data.js ==================== 
+        const skills = [
+            {
+                category: "Programming Languages",
+                experience: "4 years of experience",
+                icon: "fas fa-code",
+                skillsList: [
+                    { name: "Python", percentage: 100 },
+                    { name: "JavaScript", percentage: 95 },
+                    { name: "TypeScript", percentage: 95 },
+                    { name: "Ruby", percentage: 90 },
+                    { name: "Go", percentage: 90 },
+                    { name: "C++", percentage: 85 },
+                    { name: "C", percentage: 85 },
+                    { name: "SQL", percentage: 85 },
+                    { name: "LaTeX", percentage: 75 }
+                ]
+            },
+            {
+                category: "Web & Cloud Technologies",
+                experience: "3 years of experience",
+                icon: "fas fa-cloud",
+                skillsList: [
+                    { name: "React JS", percentage: 95 },
+                    { name: "NodeJS", percentage: 90 },
+                    { name: "AWS", percentage: 90 },
+                    { name: "Bootstrap", percentage: 85 },
+                    { name: "Vue.js", percentage: 80 },
+                    { name: "React Native", percentage: 80 },
+                    { name: "Docker", percentage: 75 }
+                ]
+            },
+            {
+                category: "Security & Network",
+                experience: "2 years of experience",
+                icon: "fas fa-shield-alt",
+                skillsList: [
+                    { name: "SSH", percentage: 95 },
+                    { name: "Network Security", percentage: 90 },
+                    { name: "AES Ciphers", percentage: 80 },
+                    { name: "Python Sockets", percentage: 75 }
+                ]
+            },
+            {
+                category: "Development & Methodologies",
+                experience: "3 years of experience",
+                icon: "fas fa-tasks",
+                skillsList: [
+                    { name: "Agile Development", percentage: 95 },
+                    { name: "Scrum", percentage: 95 },
+                    { name: "Git", percentage: 90 },
+                    { name: "Project Planning", percentage: 90 },
+                    { name: "Daily Standup", percentage: 85 },
+                    { name: "Sprint Review", percentage: 85 },
+                    { name: "MVC", percentage: 80 }
+                ]
+            },
+            {
+                category: "3D & Scientific Computing",
+                experience: "2 years of experience",
+                icon: "fas fa-cube",
+                skillsList: [
+                    { name: "ThreeJS", percentage: 90 },
+                    { name: "NumPy", percentage: 85 },
+                    { name: "OpenJSCad", percentage: 80 },
+                    { name: "Unity", percentage: 75 }
+                ]
+            },
+            {
+                category: "Tools & Platforms",
+                experience: "3 years of experience",
+                icon: "fas fa-tools",
+                skillsList: [
+                    { name: "VS Code", percentage: 100 },
+                    { name: "Linux", percentage: 95 },
+                    { name: "Figma", percentage: 90 },
+                    { name: "SQLite", percentage: 85 },
+                    { name: "Gitlab", percentage: 80 },
+                    { name: "Sanity IO", percentage: 75 },
+                    { name: "Stripe", percentage: 70 }
+                ]
+            }
+        ];
+
+        const projects = [
+            {
+                title: "Multi Cycle Processor Simulator",
+                description: "Designed a two-stage simulator for a multi-stage processor pipeline that converts LegV8 assembly files to C language machine code. Enhanced performance by debugging edge cases and optimizing execution times using VSCode debugger to address data and control hazards.",
+                tech: "C, LegV8, Assembly",
+                category: "C",
+                icon: "fas fa-microchip",
+                link: "#",
+            },
+            {
+                title: "Malik Industries",
+                description: "An e-commerce website using Sanity IO to store a database of products that can be managed and easily updated using the Sanity client dashboard in addition to real-time payments from active users on the website with user feedback on purchase.",
+                tech: "React, NextJS, Sanity, Stripe, JavaScript",
+                category: "Javascript",
+                icon: "fas fa-shopping-cart",
+                link: "https://github.com/sammalik111/malik_Industries",
+            },
+            {
+                title: "Would You Rather?",
+                description: "A website that mimics an online game where you choose between two options with a functioning comments section, search bar, a working database, and profile options that have login credentials and store session information.",
+                tech: "React, NodeJS, MongoDB, JavaScript, AJAX requests",
+                category: "Javascript",
+                icon: "fas fa-gamepad",
+                link: "https://github.com/sammalik111/Would-You-Rather-",
+            },
+            {
+                title: "Sound Survivor",
+                description: "Programmed a 2D platform game using NodeJS where the player has the ability to pick up powers & escape the dimension they're trapped in with multiple game scenes and cinematic effects.",
+                tech: "C#, Unity",
+                category: "C",
+                icon: "fas fa-music",
+                link: "https://github.com/sammalik111/sound-survivor",
+            },
+            {
+                title: "Convolutions",
+                description: "An ongoing development project testing convolutional neural networks and image interpretation using different forms of kernels on a variable amount of convolutional layers.",
+                tech: "Python, Bashscript",
+                category: "Python",
+                icon: "fas fa-brain",
+                link: "https://github.com/sammalik111/convolutions",
+            },
+            {
+                title: "Stock Exchange",
+                description: "A stock exchange data analysis tool that simulates all trades in any given time period by interpreting information from a CSV file, with 100,000 test sales to test and ensure accuracy of data.",
+                tech: "C++",
+                category: "C",
+                icon: "fas fa-chart-line",
+                link: "#",
+            },
+        ];
+
+        const qualifications = [
+            {
+                type: 'school',
+                date: "SEP 2019 - AUG 2024",
+                title: "Bachelor of Science in Engineering - Computer Science",
+                institution: "University of Michigan, Ann Arbor",
+                description: "Coursework: Discrete Mathematics, System Architecture, Computer Security, Artificial Intelligence, Advanced Data Structures & Algorithms, Advanced Business Analytics, Statistics and Data Analysis, Software Engineering, User Interface Development, Data Analytics.",
+            },
+            {
+                type: 'school',
+                date: "JUN 2022 - JUL 2022",
+                title: "Google Data Analytics Certification",
+                institution: "Google",
+                description: "Gained proficiency in data cleaning, preparation, and validation techniques using spreadsheets and SQL. Developed strong proficiency in SQL for querying and managing large datasets in relational databases.",
+            },
+            {
+                type: 'school',
+                date: "AUG 2025 - OCT 2025",
+                title: "AWS Cloud Practitioner Certification",
+                institution: "Amazon Web Services",
+                description: "Gained proficiency in core AWS services including EC2, S3, Lambda, RDS, and IAM, with emphasis on security best practices. Developed understanding of cloud deployment models, shared responsibility model, and compliance frameworks within the AWS ecosystem.",
+            },
+            {
+                type: 'work',
+                date: "SEP 2024 - PRESENT",
+                title: "Software Development Engineer",
+                institution: "Amazon Web Services Security, Herndon, VA",
+                description: "Supported and optimized secure, scalable access solutions within AWS infrastructure, specializing in SSH, WebSocket-SSH, and Certificate Authority (CA) services. Implemented and maintained CI/CD pipelines with SCRUM workflows to ensure rapid, reliable deployment of security services. Enhanced cloud access efficiency and compliance by streamlining remote connectivity, enforcing AWS security standards, and collaborating with clients to ensure service availability and scalability.",
+                skills: ["AWS", "Python", "SSH", "CI/CD", "Security", "SCRUM"]
+            },
+            {
+                type: 'work',
+                date: "OCT 2023 - MAY 2024",
+                title: "Software Engineer",
+                institution: "University of Michigan, Ann Arbor, MI",
+                description: "Consolidated multiple anatomic 3D models sourced from modeling libraries such as OpenJSCad and ThreeJS into a unified object file format by optimizing the models for commercial and business export purposes. Accomplished the development of a new website using Vite and ReactJS enabling parametric human body modeling for hospitals by incorporating 3D models that allow for the design of patient-specific equipment based on 6 unique parameters.",
+                skills: ["React", "Vite", "ThreeJS", "OpenJSCad", "3D Modeling"]
+            }
+        ];
+
+        // ==================== 3D BACKGROUND ANIMATION ====================
         const canvas = document.getElementById('bg-canvas');
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -1401,7 +1365,6 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.position.z = 5;
 
-        // Create particles
         const particlesGeometry = new THREE.BufferGeometry();
         const particlesCount = 1000;
         const posArray = new Float32Array(particlesCount * 3);
@@ -1422,7 +1385,6 @@
         const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
         scene.add(particlesMesh);
 
-        // Mouse movement effect
         let mouseX = 0;
         let mouseY = 0;
 
@@ -1431,14 +1393,11 @@
             mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
         });
 
-        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
             
             particlesMesh.rotation.x += 0.0005;
             particlesMesh.rotation.y += 0.0008;
-            
-            // Mouse interaction
             particlesMesh.rotation.x += mouseY * 0.0001;
             particlesMesh.rotation.y += mouseX * 0.0001;
 
@@ -1447,14 +1406,13 @@
 
         animate();
 
-        // Responsive
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Navbar scroll effect
+        // ==================== NAVBAR SCROLL EFFECT ====================
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -1464,7 +1422,7 @@
             }
         });
 
-        // Smooth scrolling
+        // ==================== SMOOTH SCROLLING ====================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1478,7 +1436,237 @@
             });
         });
 
-        // Skill bars animation on scroll
+        // ==================== INJECT SKILLS ====================
+        function injectSkills() {
+            const container = document.getElementById('skills-container');
+            
+            skills.forEach((category, index) => {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'skill-category';
+                categoryCard.style.opacity = '0';
+                categoryCard.style.transform = 'translateY(20px)';
+                
+                let skillsHTML = '';
+                category.skillsList.forEach(skill => {
+                    skillsHTML += `
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">${skill.name}</span>
+                                <span class="skill-level">${skill.percentage}%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%" data-width="${skill.percentage}%"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                categoryCard.innerHTML = `
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <i class="${category.icon}"></i>
+                        </div>
+                        <div>
+                            <h3 class="skill-category-title">${category.category}</h3>
+                            <p class="skill-category-experience">${category.experience}</p>
+                        </div>
+                    </div>
+                    ${skillsHTML}
+                `;
+                
+                container.appendChild(categoryCard);
+                
+                setTimeout(() => {
+                    categoryCard.style.transition = 'all 0.5s ease';
+                    categoryCard.style.opacity = '1';
+                    categoryCard.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        // ==================== INJECT PROJECTS ====================
+        function injectProjects() {
+            const container = document.getElementById('projects-container');
+            
+            projects.forEach((project, index) => {
+                const projectCard = document.createElement('div');
+                projectCard.className = `project-card ${project.category}`;
+                projectCard.setAttribute('data-category', project.category);
+                projectCard.style.opacity = '0';
+                projectCard.style.transform = 'translateY(20px)';
+                
+                projectCard.innerHTML = `
+                    <div class="project-image">
+                        <i class="${project.icon}"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-description">${project.description}</p>
+                        <div class="project-tech">
+                            ${project.tech.split(',').map(tech => 
+                                `<span class="skill-tag">${tech.trim()}</span>`
+                            ).join('')}
+                        </div>
+                        <div class="project-links">
+                            ${project.link !== '#' ? 
+                                `<a href="${project.link}" target="_blank" class="project-link project-link-primary">
+                                    <i class="fas fa-external-link-alt"></i> View Project
+                                </a>` : 
+                                `<span class="project-link project-link-secondary">
+                                    <i class="fas fa-lock"></i> Private Repository
+                                </span>`
+                            }
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(projectCard);
+                
+                setTimeout(() => {
+                    projectCard.style.transition = 'all 0.5s ease';
+                    projectCard.style.opacity = '1';
+                    projectCard.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        // ==================== INJECT TIMELINE ====================
+        function injectTimeline(filter = 'all') {
+            const container = document.getElementById('timeline-container');
+            container.innerHTML = '';
+            
+            const filtered = filter === 'all' ? qualifications : 
+                            qualifications.filter(q => q.type === filter);
+            
+            filtered.forEach((item, index) => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+                timelineItem.style.opacity = '0';
+                timelineItem.style.transform = 'translateX(-20px)';
+                
+                const skillsHTML = item.skills ? 
+                    `<div class="timeline-skills">
+                        ${item.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    </div>` : '';
+                
+                timelineItem.innerHTML = `
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">${item.title}</h3>
+                                <div class="timeline-company">${item.institution}</div>
+                            </div>
+                            <div class="timeline-date">${item.date}</div>
+                        </div>
+                        <p class="timeline-description">${item.description}</p>
+                        ${skillsHTML}
+                    </div>
+                `;
+                
+                container.appendChild(timelineItem);
+                
+                setTimeout(() => {
+                    timelineItem.style.transition = 'all 0.5s ease';
+                    timelineItem.style.opacity = '1';
+                    timelineItem.style.transform = 'translateX(0)';
+                }, index * 100);
+            });
+        }
+
+        // ==================== INJECT CERTIFICATIONS ====================
+        function injectCertifications() {
+            const container = document.getElementById('certs-container');
+            
+            const certifications = [
+                {
+                    name: "AWS Cloud Practitioner",
+                    issuer: "Amazon Web Services",
+                    date: "2025",
+                    icon: "fab fa-aws",
+                    description: "Core AWS services including EC2, S3, Lambda, RDS, and IAM with security best practices"
+                },
+                {
+                    name: "Google Data Analytics",
+                    issuer: "Google",
+                    date: "2022",
+                    icon: "fab fa-google",
+                    description: "Data cleaning, preparation, validation and SQL proficiency for managing large datasets"
+                },
+                {
+                    name: "B.S. Computer Science",
+                    issuer: "University of Michigan",
+                    date: "2024",
+                    icon: "fas fa-graduation-cap",
+                    description: "Advanced coursework in AI, Data Structures, Security, and Software Engineering"
+                }
+            ];
+            
+            certifications.forEach((cert, index) => {
+                const certCard = document.createElement('div');
+                certCard.className = 'cert-card';
+                certCard.style.opacity = '0';
+                certCard.style.transform = 'translateY(20px)';
+                
+                certCard.innerHTML = `
+                    <div class="cert-icon">
+                        <i class="${cert.icon}"></i>
+                    </div>
+                    <h3 class="cert-name">${cert.name}</h3>
+                    <div class="cert-issuer">${cert.issuer}</div>
+                    <div class="cert-date">${cert.date}</div>
+                    <p class="cert-description">${cert.description}</p>
+                `;
+                
+                container.appendChild(certCard);
+                
+                setTimeout(() => {
+                    certCard.style.transition = 'all 0.5s ease';
+                    certCard.style.opacity = '1';
+                    certCard.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        // ==================== FILTER FUNCTIONALITY ====================
+        // Experience filters
+        document.querySelectorAll('#experience .filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#experience .filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                injectTimeline(this.dataset.filter);
+            });
+        });
+
+        // Project filters
+        document.querySelectorAll('#projects .filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('#projects .filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                const cards = document.querySelectorAll('.project-card');
+                
+                cards.forEach((card, index) => {
+                    if (category === 'ALL' || card.dataset.category === category) {
+                        setTimeout(() => {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        }, index * 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // ==================== SKILL BAR ANIMATION ====================
         const observerOptions = {
             threshold: 0.5
         };
@@ -1487,19 +1675,27 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const progressBars = entry.target.querySelectorAll('.skill-progress');
-                    progressBars.forEach(bar => {
-                        const width = bar.style.width;
-                        bar.style.width = '0%';
+                    progressBars.forEach((bar, index) => {
+                        const width = bar.dataset.width;
                         setTimeout(() => {
                             bar.style.width = width;
-                        }, 100);
+                        }, index * 100);
                     });
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.skill-category').forEach(category => {
-            observer.observe(category);
+        // ==================== INITIALIZE ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            injectSkills();
+            injectProjects();
+            injectTimeline('all');
+            injectCertifications();
+            
+            // Observe skill categories for animation
+            document.querySelectorAll('.skill-category').forEach(category => {
+                observer.observe(category);
+            });
         });
     </script>
 </body>

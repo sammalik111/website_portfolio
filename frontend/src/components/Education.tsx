@@ -8,24 +8,26 @@ export function Education() {
 
   return (
     <Section id="education" title="Education & community">
-      {education.map((entry) => (
-        <Entry
-          key={entry.school}
-          meta={entry.dates}
-          title={entry.school}
-          subtitle={[entry.degree, entry.focus].filter(Boolean).join(" · ")}
-          tags={entry.coursework}
-        />
-      ))}
-      {volunteering.map((entry) => (
-        <Entry
-          key={entry.organization}
-          meta={entry.dates}
-          title={entry.organization}
-          subtitle={entry.role}
-          description={entry.description}
-        />
-      ))}
+      <div className="space-y-6">
+        {education.map((entry) => (
+          <Entry
+            key={entry.school}
+            title={entry.school}
+            meta={entry.dates}
+            subtitle={[entry.degree, entry.focus].filter(Boolean).join(" · ")}
+            tags={entry.coursework}
+          />
+        ))}
+        {volunteering.map((entry) => (
+          <Entry
+            key={entry.organization}
+            title={entry.organization}
+            meta={entry.dates}
+            subtitle={entry.role}
+            description={entry.description}
+          />
+        ))}
+      </div>
     </Section>
   );
 }

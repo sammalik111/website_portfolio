@@ -1,4 +1,5 @@
-import { Entry } from "@/components/Entry";
+import { Badge } from "@/components/ui/badge";
+import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { resume } from "@/data/resume";
 
@@ -8,9 +9,23 @@ export function Skills() {
 
   return (
     <Section id="skills" title="Skills">
-      {skills.map((group) => (
-        <Entry key={group.category} meta={group.category} description={group.items.join(", ")} />
-      ))}
+      <Reveal>
+        <div className="surface divide-y divide-[hsl(var(--border))] rounded-[var(--radius)]">
+          {skills.map((group) => (
+            <div
+              key={group.category}
+              className="grid gap-3 px-6 py-5 md:grid-cols-[12rem_1fr] md:gap-8 md:px-8"
+            >
+              <h3 className="font-medium">{group.category}</h3>
+              <div className="flex flex-wrap gap-1.5">
+                {group.items.map((item, i) => (
+                  <Badge key={`${item}-${i}`}>{item}</Badge>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
     </Section>
   );
 }

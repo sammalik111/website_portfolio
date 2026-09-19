@@ -8,16 +8,18 @@ export function Experience() {
 
   return (
     <Section id="experience" title="Experience">
-      {experience.map((job) => (
-        <Entry
-          key={`${job.company}-${job.dates ?? job.title}`}
-          meta={job.dates}
-          title={job.company}
-          subtitle={[job.title, job.location].filter(Boolean).join(" · ")}
-          bullets={job.bullets}
-          tags={job.skills}
-        />
-      ))}
+      <div className="space-y-6">
+        {experience.map((job) => (
+          <Entry
+            key={`${job.company}-${job.dates ?? job.title}`}
+            title={job.company}
+            meta={job.dates}
+            subtitle={[job.title, job.location].filter(Boolean).join(" · ")}
+            bullets={job.bullets}
+            tags={job.skills}
+          />
+        ))}
+      </div>
     </Section>
   );
 }

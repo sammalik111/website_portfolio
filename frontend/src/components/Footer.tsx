@@ -12,7 +12,7 @@ export function Footer() {
   ].filter((link): link is { label: string; href: string } => Boolean(link));
 
   return (
-    <footer id="contact" className="mx-auto w-full max-w-3xl px-6 pb-10 pt-12 md:pt-16">
+    <footer id="contact" className="mx-auto w-full max-w-4xl px-6 pb-10 pt-12 md:pt-16">
       <Reveal>
         <div className="border-t pt-10">
           <h2 className="text-2xl font-semibold tracking-tight">Get in touch</h2>

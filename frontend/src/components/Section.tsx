@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/Reveal";
 
-/** Every content section shares this width, spacing, and heading style. */
+/** Every content section shares this width, spacing, divider, and heading style. */
 export function Section({
   id,
   title,
@@ -12,13 +12,13 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
-      <Reveal>
-        <h2 className="mb-8 border-b pb-3 text-sm font-semibold uppercase tracking-[0.08em] text-muted-foreground">
-          {title}
-        </h2>
-      </Reveal>
-      <div className="space-y-10">{children}</div>
+    <section id={id} className="border-t">
+      <div className="mx-auto w-full max-w-4xl px-6 py-16 md:py-24">
+        <Reveal>
+          <h2 className="mb-10 text-3xl font-semibold tracking-tight md:text-4xl">{title}</h2>
+        </Reveal>
+        {children}
+      </div>
     </section>
   );
 }

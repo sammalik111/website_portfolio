@@ -14,7 +14,7 @@ export function Nav() {
 
   return (
     <header className="surface-bar fixed inset-x-0 top-0 z-50">
-      <nav className="mx-auto flex h-14 max-w-3xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-14 max-w-4xl items-center justify-between px-6">
         <a href="#hero" className="text-[15px] font-semibold tracking-tight">
           {profile.name}
         </a>

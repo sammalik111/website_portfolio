@@ -8,18 +8,22 @@ export function Projects() {
 
   return (
     <Section id="projects" title="Projects">
-      {projects.map((project) => (
-        <Entry
-          key={project.title}
-          meta={project.dates ?? project.role}
-          title={project.title}
-          href={project.link}
-          subtitle={project.dates ? project.role : undefined}
-          description={project.summary ?? project.bullets[0]}
-          tags={project.tech}
-          links={project.repo ? [{ label: "Source", href: project.repo }] : []}
-        />
-      ))}
+      <div className="grid gap-6 md:grid-cols-2">
+        {projects.map((project, i) => (
+          <Entry
+            key={project.title}
+            // The first project is the featured one and spans the full width.
+            className={i === 0 ? "md:col-span-2" : undefined}
+            title={project.title}
+            href={project.link}
+            meta={project.dates}
+            subtitle={project.role}
+            description={project.summary ?? project.bullets[0]}
+            tags={project.tech}
+            links={project.repo ? [{ label: "Source", href: project.repo }] : []}
+          />
+        ))}
+      </div>
     </Section>
   );
 }

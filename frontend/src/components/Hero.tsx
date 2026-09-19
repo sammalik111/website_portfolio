@@ -9,7 +9,7 @@ export function Hero() {
   const tagline = [profile.role, profile.location].filter(Boolean).join(" · ");
 
   return (
-    <section id="hero" className="mx-auto w-full max-w-3xl px-6 pb-8 pt-28 md:pt-36">
+    <section id="hero" className="mx-auto w-full max-w-4xl px-6 pb-16 pt-28 md:pb-20 md:pt-36">
       <Reveal>
         <div className="flex items-center gap-5">
           <Avatar className="size-16 md:size-20">

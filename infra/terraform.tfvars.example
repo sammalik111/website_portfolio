@@ -1,0 +1,9 @@
+# Copy this file to terraform.tfvars and fill in your own values.
+# terraform.tfvars is gitignored — never commit real values there.
+
+aws_region          = "us-east-1"
+key_name            = "shahmeer-portfolio-key" # must already exist in your AWS account
+ssh_ingress_cidr    = "203.0.113.10/32" # your IP — find it with `curl ifconfig.me`
+github_repo_url     = "https://github.com/sammalik111/website_portfolio.git"
+github_repo_branch  = "main"
+domain_name         = "" # set once you own the domain and want Caddy to auto-HTTPS it

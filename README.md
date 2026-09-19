@@ -6,25 +6,14 @@ Shahmeer Malik's personal site. Self-hosted on a single AWS EC2 instance (not Gi
 
 ```
 frontend/   React + TypeScript + Tailwind v4 + shadcn/ui site (light/dark theme, single-column layout)
-infra/      Terraform: VPC, security group, EC2 instance, Elastic IP, boot script, S3 content bucket
-scripts/    content.sh — publish/pull the editable site content to/from S3
+infra/      Terraform: VPC, security group, EC2 instance, Elastic IP, boot script
+scripts/    setup.sh (first-time deploy) and deploy.sh (push updates to the server)
 icons/      Old raw assets kept for reference (Resume.pdf is stale — not linked from the site)
 ```
 
-## Editing content (no redeploy)
+## Editing content
 
-All page content — profile, experience, projects, skills, education — lives in one file, `frontend/src/data/resume.json`. The live site fetches a copy of it from S3 on every page load, so content changes never need a commit, push, or server rebuild:
-
-```bash
-# edit frontend/src/data/resume.json, then:
-scripts/content.sh publish     # uploads it; refresh the site to see it
-scripts/content.sh pull        # (optional) sync the local file from what's live in S3
-scripts/content.sh pdf ~/Resume.pdf   # upload a resume PDF; set profile.resumeUrl to show a Resume button
-```
-
-Delete a bullet, project, or whole section from the JSON and it disappears from the page. An entry missing its required field (`company`+`title`, `title`, `category`, `school`, `organization`) is skipped, and if S3 is unreachable or the file is unusable the site falls back to the copy bundled at build time. Keep the repo copy committed occasionally so that fallback stays current; every S3 upload also keeps 90 days of version history.
-
-One-time setup: `terraform apply` creates the bucket, then put `terraform output content_url` into `frontend/.env.production` as `VITE_CONTENT_URL` (see `frontend/.env.example`) and deploy once. See `infra/README.md`.
+All page content — profile, experience, projects, skills, education, volunteering — lives in one file, `frontend/src/data/resume.json`. Edit it, then commit, push, and run `scripts/deploy.sh` (see "Deploying"). Delete a bullet, project, or whole section and it disappears from the page; an entry missing its required field (`company`+`title`, `title`, `category`, `school`, `organization`) is skipped with a console warning. The resume PDF is `frontend/public/resume.pdf`, linked via `profile.resumeUrl`.
 
 ## Running locally
 

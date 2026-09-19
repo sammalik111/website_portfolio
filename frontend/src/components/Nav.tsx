@@ -1,10 +1,10 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { useResume } from "@/data/ResumeProvider";
+import { resume } from "@/data/resume";
 
 export function Nav() {
-  const { profile, experience, projects, skills, education, volunteering } = useResume();
+  const { profile, experience, projects, skills, education, volunteering } = resume;
 
-  // Only link to sections that actually render, since the content can now change without a redeploy.
+  // Only link to sections that actually render (a section is hidden when its data is empty).
   const links = [
     { href: "#experience", label: "Experience", show: experience.length > 0 },
     { href: "#projects", label: "Projects", show: projects.length > 0 },

@@ -1,9 +1,9 @@
 import { Entry } from "@/components/Entry";
 import { Section } from "@/components/Section";
-import { useResume } from "@/data/ResumeProvider";
+import { resume } from "@/data/resume";
 
 export function Education() {
-  const { education, volunteering } = useResume();
+  const { education, volunteering } = resume;
   if (education.length === 0 && volunteering.length === 0) return null;
 
   return (

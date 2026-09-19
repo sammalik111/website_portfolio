@@ -1,8 +1,8 @@
 import { Reveal } from "@/components/Reveal";
-import { useResume } from "@/data/ResumeProvider";
+import { resume } from "@/data/resume";
 
 export function Footer() {
-  const { profile } = useResume();
+  const { profile } = resume;
 
   const links = [
     profile.email && { label: profile.email, href: `mailto:${profile.email}` },

@@ -10,21 +10,7 @@ Terraform for hosting the portfolio site on a single small EC2 instance instead 
 - An Elastic IP attached to that instance, so the address is stable across reboots/replacements — point your domain's A record at it.
 - User-data (cloud-init) that runs once on first boot: installs Caddy + Node.js, clones this repo, builds `frontend/`, and serves the static build with Caddy.
 
-- An S3 **content bucket** (`s3.tf`) holding `resume.json` and `resume.pdf`, which the site fetches at runtime so page content is editable without redeploying. Only those two keys are publicly readable (via bucket policy; ACLs stay blocked), CORS allows browser GETs, and versioning keeps 90 days of history. Cost is effectively $0 (a few KB, a few requests). Everything else about editing is in the root `README.md` ("Editing content").
-
 No load balancer, ECS, RDS, etc. — this is intentionally a single-box setup.
-
-### First-time content setup
-
-After `terraform apply`:
-
-```bash
-echo "VITE_CONTENT_URL=$(terraform output -raw content_url)" > ../frontend/.env.production
-../scripts/content.sh publish      # upload the current resume.json
-# commit frontend/.env.production, push, then run /opt/app/deploy.sh on the instance once
-```
-
-From then on, content edits are just `scripts/content.sh publish`.
 
 ## Naming & tagging (shared AWS account)
 

@@ -1,10 +1,6 @@
 import bundled from "./resume.json";
 
-/**
- * Shape of the site's content. The same JSON is bundled into the build (as an
- * offline fallback) and published to S3, where the live site fetches it — edit
- * `resume.json`, run `scripts/content.sh publish`, and the page updates with no redeploy.
- */
+/** Shape of the site's content, which lives in `resume.json` and is bundled into the build. */
 
 export type Profile = {
   name: string;
@@ -16,7 +12,7 @@ export type Profile = {
   phone?: string;
   linkedin?: string;
   github?: string;
-  /** Link to a resume PDF (e.g. the S3 object); shows a "Resume" button when set. */
+  /** Link to a resume PDF (e.g. "/resume.pdf" from public/); shows a "Resume" button when set. */
   resumeUrl?: string;
 };
 
@@ -88,10 +84,9 @@ function collect<T>(value: unknown, label: string, build: (o: Json) => T | undef
 }
 
 /**
- * Turns untrusted JSON (hand-edited, fetched from S3) into a fully-populated Resume.
- * Returns null only if the file is unusable (no profile name); anything else degrades
- * gracefully. Missing sections become empty — the bundled data is only used on failure,
- * so deleting something from the JSON really removes it from the page.
+ * Turns the hand-edited JSON into a fully-populated Resume. Returns null only if the
+ * file is unusable (no profile name); anything else degrades gracefully: missing
+ * sections become empty, so deleting something from the JSON removes it from the page.
  */
 export function parseResume(input: unknown): Resume | null {
   if (!isObject(input) || !isObject(input.profile)) return null;
@@ -168,5 +163,7 @@ export function parseResume(input: unknown): Resume | null {
   };
 }
 
-/** Content baked into the build; shown instantly and used if the S3 fetch fails. */
-export const defaultResume = parseResume(bundled) as Resume;
+const parsed = parseResume(bundled);
+if (!parsed) throw new Error("resume.json is missing profile.name");
+
+export const resume: Resume = parsed;

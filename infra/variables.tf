@@ -51,18 +51,6 @@ variable "github_repo_branch" {
   default     = "main"
 }
 
-variable "content_bucket_name" {
-  description = "Name of the S3 bucket holding resume.json / resume.pdf. Leave blank to use <project_name>-content-<account id> (bucket names are globally unique)."
-  type        = string
-  default     = ""
-}
-
-variable "content_cors_origins" {
-  description = "Origins allowed to fetch the content bucket from a browser. \"*\" is fine here because the content is public anyway; tighten to your domain (plus http://localhost:5173 for dev) if you prefer."
-  type        = list(string)
-  default     = ["*"]
-}
-
 variable "domain_name" {
   description = "Optional domain name (e.g. example.com) that will eventually point at the Elastic IP. Leave blank to have Caddy serve plain HTTP only; set it later and re-run deploy.sh once DNS is pointed to get automatic HTTPS."
   type        = string

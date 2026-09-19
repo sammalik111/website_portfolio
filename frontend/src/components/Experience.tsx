@@ -1,9 +1,9 @@
 import { Entry } from "@/components/Entry";
 import { Section } from "@/components/Section";
-import { useResume } from "@/data/ResumeProvider";
+import { resume } from "@/data/resume";
 
 export function Experience() {
-  const { experience } = useResume();
+  const { experience } = resume;
   if (experience.length === 0) return null;
 
   return (

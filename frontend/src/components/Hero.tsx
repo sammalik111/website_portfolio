@@ -2,10 +2,10 @@ import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
-import { useResume } from "@/data/ResumeProvider";
+import { resume } from "@/data/resume";
 
 export function Hero() {
-  const { profile } = useResume();
+  const { profile } = resume;
   const tagline = [profile.role, profile.location].filter(Boolean).join(" · ");
 
   return (

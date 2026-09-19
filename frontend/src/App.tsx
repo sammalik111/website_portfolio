@@ -1,3 +1,4 @@
+import { ResumeProvider } from "@/data/ResumeProvider";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Experience } from "@/components/Experience";
@@ -8,16 +9,18 @@ import { Footer } from "@/components/Footer";
 
 export default function App() {
   return (
-    <div className="bg-mesh min-h-screen">
-      <Nav />
-      <main>
-        <Hero />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Education />
-      </main>
-      <Footer />
-    </div>
+    <ResumeProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        <Nav />
+        <main>
+          <Hero />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Education />
+        </main>
+        <Footer />
+      </div>
+    </ResumeProvider>
   );
 }

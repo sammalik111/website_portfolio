@@ -1,0 +1,316 @@
+{
+  "profile": {
+    "name": "Shahmeer Malik",
+    "role": "Full-Stack Software Engineer",
+    "summary": "Full-stack software engineer with production experience in software architecture, backend and frontend development, distributed systems, data pipelines, and cloud infrastructure (AWS) — including fintech-adjacent financial forecasting and RBAC-based authorization. University of Michigan CS graduate.",
+    "location": "Livonia, Michigan",
+    "languages": [
+      "Urdu",
+      "Arabic",
+      "Spanish",
+      "Farsi"
+    ],
+    "email": "malikshahmeer.ms@gmail.com",
+    "phone": "760-212-0696",
+    "linkedin": "https://linkedin.com/in/shahmeer-malik-30b3b822b",
+    "github": "https://github.com/sammalik111"
+  },
+  "experience": [
+    {
+      "company": "ReadySignal",
+      "title": "Full-Stack Engineer",
+      "location": "Ann Arbor, MI · Hybrid",
+      "dates": "Jun 2026 — Present",
+      "bullets": [
+        "Took a vibe-coded prototype to production in 3 months with 1 other engineer, architecting Next.js, FastAPI, and MySQL to scale to 1,000,000 requests per day on a multi-tenant AWS SaaS platform for under $200/month",
+        "Engineered a pipeline that iteratively runs an exhaustive subset search, falling back to greedy pruning, fit memoization, and thread-pool concurrency, to aggregate and overlay external public data for sales forecasting — improving prototype forecast accuracy from 75% to 93%",
+        "Built an LLM chat bot supporting 10 model personalities across multiple providers, automating financial-analysis and forecast requests end-to-end across 11 SQS async jobs, saving roughly 2 hours/week of support time"
+      ],
+      "skills": [
+        "Next.js",
+        "FastAPI",
+        "MySQL",
+        "AWS",
+        "SQS",
+        "LLM Integration"
+      ]
+    },
+    {
+      "company": "Amazon Web Services",
+      "title": "Software Engineer",
+      "location": "Herndon, VA",
+      "dates": "Oct 2024 — Dec 2025",
+      "bullets": [
+        "Redesigned production monitoring dashboards with pagination, region-based clustering, and embedded runbook links, and restructured weekly operational reviews and led multiple Correction of Error analyses, cutting incident response time from 6 hours to 50 minutes — an 85% reduction",
+        "Resolved a multi-region SSH outage caused by a 46GB transfer bypassing legacy rate limiting by adding pre-prod load testing (JUnit, Mocha) and payload-aware throttling",
+        "Eliminated recurring false-positive SSH alerts by fixing a race condition between health checks and host-patching cycles, improving on-call signal reliability",
+        "Optimized the SSH and WebSocket-SSH services in Go and TypeScript, improving connection stability for internal users by resolving false-positive error codes and integrating internal load balancing to prevent zip bomb attacks",
+        "Developed and maintained CI/CD pipelines for 4 security services, improving deployment reliability"
+      ],
+      "skills": [
+        "AWS",
+        "Go",
+        "TypeScript",
+        "CI/CD",
+        "SSH",
+        "JUnit",
+        "Mocha",
+        "Observability",
+        "On-call"
+      ]
+    },
+    {
+      "company": "Talent Beyond Boundaries",
+      "title": "Intern",
+      "location": "Amman, Jordan · On-site",
+      "dates": "May 2024 — Sep 2024",
+      "bullets": [
+        "Ran English training sessions and mock interviews with feedback on soft and technical skills to improve refugees' employability and language proficiency",
+        "Facilitated the acquisition of passports and travel documents to help refugees relocate to safer countries"
+      ],
+      "skills": [
+        "Arabic",
+        "Mentoring",
+        "Interview Coaching"
+      ]
+    },
+    {
+      "company": "UMTRI",
+      "title": "Software Engineer (Apprenticeship)",
+      "location": "Ann Arbor, MI · On-site",
+      "dates": "Oct 2023 — May 2024",
+      "bullets": [
+        "Developed a React/Vite parametric medical-equipment design tool, reducing manual modeling time by approximately 50%",
+        "Unified over 100,000 anthropometric data points into a 3D human-body model, improving rendering efficiency by 30%",
+        "Normalized diverse data formats with singleton structure standards, improving compatibility with the Three.js rendering layer"
+      ],
+      "skills": [
+        "React",
+        "Vite",
+        "Three.js",
+        "Data Modeling"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "MiraajGames.com",
+      "role": "Solo Founder / Full-Stack Engineer",
+      "dates": "Feb 2026 — Present",
+      "summary": "A self-hosted arcade of 15+ original HTML5-canvas games with DMs, group chat, and leaderboards — 10,000+ lines of Next.js on AWS EC2, carrying 500+ DMs a week.",
+      "bullets": [
+        "Shipped a 10,000+ line Next.js arcade with 15+ original HTML5-canvas games (Tetris, Pacman, Chess, Flappy Bird, Crossy Road, Sudoku, Battleship, and more), each built from scratch with custom physics, collision, and rendering",
+        "Modeled an 8-table Postgres schema in TypeScript with Drizzle ORM and migrated the Neon database, keeping schema, types, and queries in lockstep so data-layer errors surface at compile time instead of in production",
+        "Built DM and group-chat support with cursor-based pagination and read receipts, keeping message load latency at O(page size) regardless of conversation depth — serving dozens of monthly users and carrying 500+ DMs per week",
+        "Instrumented 30+ backend API routes with structured logging shipped to AWS CloudWatch, enabling centralized monitoring of request volume, errors, and latency across auth, messaging, leaderboard, and game endpoints",
+        "Self-hosted production on an AWS EC2 instance with an Elastic IP and IONOS domain, running the service under systemd on localhost:3000 behind Caddy terminating TLS on :443 — monetized through Google AdSense"
+      ],
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "Neon",
+        "AWS",
+        "Caddy"
+      ],
+      "link": "https://miraajgames.com",
+      "repo": "https://github.com/sammalik111/MiraajGames"
+    },
+    {
+      "title": "Malik Industries",
+      "role": "E-commerce Platform",
+      "bullets": [
+        "Full-stack e-commerce site with a Sanity IO-managed product database and real-time Stripe payments with post-purchase feedback."
+      ],
+      "tech": [
+        "React",
+        "Next.js",
+        "Sanity",
+        "Stripe"
+      ],
+      "link": "https://github.com/sammalik111/malik_Industries"
+    },
+    {
+      "title": "3D Wheelchair Tool",
+      "role": "Parametric Modeling Platform",
+      "bullets": [
+        "Parametric 3D modeling platform for patient-specific wheelchair design with real-time manipulation, built at UMTRI for University of Michigan hospital research — cut manual modeling time by ~50%."
+      ],
+      "tech": [
+        "Three.js",
+        "OpenJSCad",
+        "React",
+        "Vite"
+      ],
+      "link": "https://humanshape.org/WheelchairTool/"
+    },
+    {
+      "title": "Would You Rather?",
+      "role": "Full-Stack Web App",
+      "bullets": [
+        "Online game site with comments, search, session-based auth, and a live database."
+      ],
+      "tech": [
+        "React",
+        "Node.js",
+        "MongoDB"
+      ],
+      "link": "https://github.com/sammalik111/Would-You-Rather-"
+    },
+    {
+      "title": "Multi-Cycle Processor Simulator",
+      "role": "Systems Programming",
+      "bullets": [
+        "Two-stage simulator for a multi-stage processor pipeline converting LegV8 assembly into machine code, with a virtual register/stack and hazard handling."
+      ],
+      "tech": [
+        "C",
+        "LegV8",
+        "Assembly"
+      ]
+    },
+    {
+      "title": "Convolutions",
+      "role": "CNN Experimentation Framework",
+      "dates": "Jun 2024 — Present",
+      "bullets": [
+        "Experimental framework for evaluating convolutional neural networks with variable kernel sizes and layered architectures on image interpretation tasks, automating training runs and configuration testing through script-driven workflows."
+      ],
+      "tech": [
+        "Python",
+        "CNNs"
+      ],
+      "link": "https://github.com/sammalik111/convolutions"
+    },
+    {
+      "title": "Stock Exchange Simulator",
+      "role": "Data Analysis Tool",
+      "bullets": [
+        "Simulates trades over a given time period from CSV input, validated against 100,000 test sales for accuracy."
+      ],
+      "tech": [
+        "C++"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "items": [
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "Python",
+        "Go",
+        "Bash",
+        "C",
+        "C++",
+        "SQL"
+      ]
+    },
+    {
+      "category": "Frameworks & Tools",
+      "items": [
+        "REST APIs",
+        "Microservices",
+        "FastAPI",
+        "React",
+        "Next.js",
+        "Node.js",
+        "SQLAlchemy",
+        "Pydantic",
+        "Alembic",
+        "WebSockets",
+        "Vite",
+        "Three.js",
+        "Drizzle ORM",
+        "ESLint",
+        "JUnit",
+        "Mocha",
+        "pytest"
+      ]
+    },
+    {
+      "category": "Cloud & Infrastructure",
+      "items": [
+        "AWS (EC2, SQS, ECS Fargate, CloudWatch, DynamoDB, IAM, VPC)",
+        "Terraform",
+        "VPC Peering",
+        "Docker",
+        "LocalStack",
+        "Twingate",
+        "Turborepo",
+        "pnpm",
+        "Caddy",
+        "systemd",
+        "CI/CD"
+      ]
+    },
+    {
+      "category": "Databases & Tooling",
+      "items": [
+        "MySQL",
+        "PostgreSQL",
+        "Neon",
+        "Amazon RDS",
+        "NoSQL",
+        "Postman",
+        "DataGrip",
+        "Git",
+        "GitHub"
+      ]
+    },
+    {
+      "category": "Engineering Practices",
+      "items": [
+        "Software Architecture",
+        "Systems Design",
+        "Algorithms",
+        "Data Analysis",
+        "Web Design",
+        "Technical Documentation",
+        "Root-Cause Analysis",
+        "Authorization / RBAC",
+        "Cross-Functional Communication",
+        "Agile"
+      ]
+    },
+    {
+      "category": "Spoken Languages",
+      "items": [
+        "Urdu",
+        "Arabic",
+        "Spanish",
+        "Farsi"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "University of Michigan",
+      "degree": "Bachelor's degree, Computer Science",
+      "dates": "Sep 2021 — Jun 2024",
+      "focus": "Focus in Business",
+      "coursework": [
+        "Computer Security",
+        "Artificial Intelligence",
+        "Advanced Data Analytics",
+        "Computer Architecture"
+      ]
+    },
+    {
+      "school": "Schoolcraft College",
+      "degree": "Associate's degree, Computer & Information Sciences",
+      "dates": "Jan 2019 — May 2021"
+    }
+  ],
+  "volunteering": [
+    {
+      "role": "Student Mentor",
+      "organization": "The Halimah Project",
+      "dates": "Oct 2023 — May 2024",
+      "description": "Volunteered at the city mosque to teach Afghan refugee children school subjects like Math and English, and to help them acclimate to American life after arriving in a new country."
+    }
+  ]
+}

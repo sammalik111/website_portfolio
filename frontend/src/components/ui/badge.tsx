@@ -4,20 +4,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+  "inline-flex items-center rounded-full px-3 py-1 text-[13px] font-medium tracking-[-0.01em] transition-colors",
   {
     variants: {
       variant: {
         default:
-          "border-[hsl(var(--primary)/0.3)] bg-[hsl(var(--primary)/0.12)] text-[hsl(var(--primary))]",
+          "bg-[hsl(var(--primary)/0.1)] text-[hsl(var(--primary))]",
         outline:
-          "border-[hsl(var(--foreground)/0.15)] bg-[hsl(var(--foreground)/0.04)] text-[hsl(var(--muted-foreground))]",
-        accent:
-          "border-[hsl(var(--accent)/0.35)] bg-[hsl(var(--accent)/0.14)] text-[hsl(var(--accent))]",
+          "bg-[hsl(var(--foreground)/0.05)] text-[hsl(var(--foreground)/0.75)]",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "outline",
     },
   },
 );

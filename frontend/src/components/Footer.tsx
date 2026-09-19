@@ -1,45 +1,41 @@
-import { Mail, Github, Linkedin } from "lucide-react";
-import { profile } from "@/data/resume";
+import { Reveal } from "@/components/Reveal";
+import { useResume } from "@/data/ResumeProvider";
 
 export function Footer() {
+  const { profile } = useResume();
+
+  const links = [
+    profile.email && { label: profile.email, href: `mailto:${profile.email}` },
+    profile.phone && { label: profile.phone, href: `tel:${profile.phone.replace(/[^\d+]/g, "")}` },
+    profile.linkedin && { label: "LinkedIn", href: profile.linkedin },
+    profile.github && { label: "GitHub", href: profile.github },
+  ].filter((link): link is { label: string; href: string } => Boolean(link));
+
   return (
-    <footer id="contact" className="px-4 pb-16 pt-8">
-      <div className="glass glass-specular mx-auto max-w-4xl rounded-[2rem] p-10 text-center">
-        <h3 className="text-gradient text-3xl font-extrabold">Let's build something.</h3>
-        <p className="mx-auto mt-3 max-w-md text-[hsl(var(--muted-foreground))]">
-          Open to full-stack, backend, and fintech-adjacent engineering roles.
-        </p>
-        <div className="mt-6 flex justify-center gap-3">
-          <a
-            href={`mailto:${profile.email}`}
-            className="glass glass-hover flex size-12 items-center justify-center rounded-full"
-            aria-label="Email"
-          >
-            <Mail className="size-5" />
-          </a>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="glass glass-hover flex size-12 items-center justify-center rounded-full"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="size-5" />
-          </a>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            className="glass glass-hover flex size-12 items-center justify-center rounded-full"
-            aria-label="GitHub"
-          >
-            <Github className="size-5" />
-          </a>
+    <footer id="contact" className="mx-auto w-full max-w-3xl px-6 pb-10 pt-12 md:pt-16">
+      <Reveal>
+        <div className="border-t pt-10">
+          <h2 className="text-2xl font-semibold tracking-tight">Get in touch</h2>
+          <p className="mt-2 text-muted-foreground">
+            Open to full-stack, backend, and fintech-adjacent engineering roles.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                {...(link.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="font-medium text-primary hover:underline"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <p className="mt-10 text-xs text-muted-foreground">
+            © {new Date().getFullYear()} {profile.name}
+          </p>
         </div>
-        <p className="mt-8 text-xs text-[hsl(var(--muted-foreground))]">
-          © {new Date().getFullYear()} {profile.name}
-        </p>
-      </div>
+      </Reveal>
     </footer>
   );
 }

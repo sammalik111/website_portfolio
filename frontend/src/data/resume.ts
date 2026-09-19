@@ -1,212 +1,172 @@
-export const profile = {
-  name: "Shahmeer Malik",
-  role: "Full-Stack Software Engineer",
-  summary:
-    "Full-stack software engineer with production experience in software architecture, backend and frontend development, distributed systems, data pipelines, and cloud infrastructure (AWS) — including fintech-adjacent financial forecasting and RBAC-based authorization.",
-  email: "malikshahmeer.ms@gmail.com",
-  phone: "760-212-0696",
-  linkedin: "https://linkedin.com/in/shahmeer-malik-30b3b822b",
-  github: "https://github.com/sammalik111",
-};
+import bundled from "./resume.json";
 
-export const stats = [
-  { value: "2+", label: "Years in Production" },
-  { value: "1M", label: "Requests/Day Scaled" },
-  { value: "18+", label: "Apps Shipped Solo" },
-];
+/**
+ * Shape of the site's content. The same JSON is bundled into the build (as an
+ * offline fallback) and published to S3, where the live site fetches it — edit
+ * `resume.json`, run `scripts/content.sh publish`, and the page updates with no redeploy.
+ */
+
+export type Profile = {
+  name: string;
+  role?: string;
+  summary?: string;
+  location?: string;
+  languages: string[];
+  email?: string;
+  phone?: string;
+  linkedin?: string;
+  github?: string;
+  /** Link to a resume PDF (e.g. the S3 object); shows a "Resume" button when set. */
+  resumeUrl?: string;
+};
 
 export type Experience = {
   company: string;
   title: string;
-  location: string;
-  dates: string;
+  location?: string;
+  dates?: string;
   bullets: string[];
   skills: string[];
 };
 
-export const experience: Experience[] = [
-  {
-    company: "ReadySignal",
-    title: "Full-Stack Engineer",
-    location: "Ann Arbor, MI",
-    dates: "June 2026 — Present",
-    bullets: [
-      "Took a vibe-coded prototype to production in 3 months with 1 other engineer, architecting Next.js, FastAPI, and MySQL to scale to 1,000,000 requests per day on a multi-tenant AWS SaaS platform for under $200/month",
-      "Engineered a pipeline that iteratively runs an exhaustive subset search, falling back to greedy pruning, fit memoization, and thread-pool concurrency, to aggregate and overlay external public data for sales forecasting — improving prototype forecast accuracy from 75% to 93%",
-      "Built an LLM chat bot supporting 10 model personalities across multiple providers, automating financial-analysis and forecast requests end-to-end across 11 SQS async jobs, saving roughly 2 hours/week of support time",
-    ],
-    skills: ["Next.js", "FastAPI", "MySQL", "AWS", "SQS", "LLM Integration"],
-  },
-  {
-    company: "Amazon Web Services",
-    title: "Software Engineer",
-    location: "Herndon, VA",
-    dates: "September 2024 — December 2025",
-    bullets: [
-      "Redesigned production monitoring dashboards with pagination, region-based clustering, and embedded runbook links, cutting incident response time from 6 hours to 50 minutes — an 85% reduction",
-      "Resolved a multi-region SSH outage caused by a 46GB transfer bypassing legacy rate limiting by adding pre-prod load testing (JUnit, Mocha) and payload-aware throttling",
-      "Eliminated recurring false-positive SSH alerts by fixing a race condition between health checks and host-patching cycles, improving on-call signal reliability",
-    ],
-    skills: ["AWS", "SSH", "JUnit", "Mocha", "Observability", "On-call"],
-  },
-];
-
-export const education = {
-  school: "University of Michigan",
-  degree: "Bachelor's degree, Computer Science",
-  dates: "May 2024",
-  coursework: [
-    "Computer Security",
-    "Artificial Intelligence",
-    "Advanced Data Analytics",
-    "Computer Architecture",
-  ],
-};
-
 export type Project = {
   title: string;
-  role: string;
-  location: string;
-  dates: string;
+  role?: string;
+  dates?: string;
+  /** One-line description shown in the projects list; falls back to the first bullet. */
+  summary?: string;
   bullets: string[];
   tech: string[];
   link?: string;
-  featured?: boolean;
+  repo?: string;
 };
 
-export const featuredProject: Project = {
-  title: "MiraajGames.com",
-  role: "Solo Founder / Full-Stack Engineer",
-  location: "Remote",
-  dates: "February 2026 — Present",
-  bullets: [
-    "Architected a production-grade full-stack platform using a custom Node.js REST API server and PostgreSQL, shipping 18+ browser-based applications end-to-end",
-    "Engineered JWT-authenticated WebSocket connections, a GDPR-compliant payment flow, and cursor-paginated messaging serving 500+ messages per week",
-    "Deployed and operated AWS infrastructure with a TLS reverse proxy, reducing monthly compute costs by 65% through load profiling and right-sizing",
-  ],
-  tech: ["Node.js", "PostgreSQL", "WebSockets", "JWT", "AWS"],
-  link: "https://miraajgames.com",
-  featured: true,
+export type SkillGroup = {
+  category: string;
+  items: string[];
 };
 
-// Earlier personal projects (pre-2024/25), kept as verifiable secondary portfolio pieces.
-export const additionalProjects: Project[] = [
-  {
-    title: "Malik Industries",
-    role: "E-commerce Platform",
-    location: "",
-    dates: "",
-    bullets: [
-      "Full-stack e-commerce site with a Sanity IO-managed product database and real-time Stripe payments with post-purchase feedback.",
-    ],
-    tech: ["React", "Next.js", "Sanity", "Stripe"],
-    link: "https://github.com/sammalik111/malik_Industries",
-  },
-  {
-    title: "3D Wheelchair Tool",
-    role: "Parametric Modeling Platform",
-    location: "",
-    dates: "",
-    bullets: [
-      "Parametric 3D modeling platform for patient-specific wheelchair design with real-time manipulation, built for University of Michigan hospital research.",
-    ],
-    tech: ["Three.js", "OpenJSCad", "React"],
-    link: "https://humanshape.org/WheelchairTool/",
-  },
-  {
-    title: "Would You Rather?",
-    role: "Full-Stack Web App",
-    location: "",
-    dates: "",
-    bullets: [
-      "Online game site with comments, search, session-based auth, and a live database.",
-    ],
-    tech: ["React", "Node.js", "MongoDB"],
-    link: "https://github.com/sammalik111/Would-You-Rather-",
-  },
-  {
-    title: "Multi-Cycle Processor Simulator",
-    role: "Systems Programming",
-    location: "",
-    dates: "",
-    bullets: [
-      "Two-stage simulator for a multi-stage processor pipeline converting LegV8 assembly into machine code, with a virtual register/stack and hazard handling.",
-    ],
-    tech: ["C", "LegV8", "Assembly"],
-  },
-  {
-    title: "Convolutions",
-    role: "Neural Network Experiments",
-    location: "",
-    dates: "",
-    bullets: [
-      "Experiments in convolutional neural networks and image interpretation across varying kernels and layer depths.",
-    ],
-    tech: ["Python"],
-    link: "https://github.com/sammalik111/convolutions",
-  },
-  {
-    title: "Stock Exchange Simulator",
-    role: "Data Analysis Tool",
-    location: "",
-    dates: "",
-    bullets: [
-      "Simulates trades over a given time period from CSV input, validated against 100,000 test sales for accuracy.",
-    ],
-    tech: ["C++"],
-  },
-];
+export type Education = {
+  school: string;
+  degree?: string;
+  dates?: string;
+  focus?: string;
+  coursework: string[];
+};
 
-export const skills = [
-  {
-    category: "Programming Languages",
-    items: ["Java", "TypeScript", "JavaScript", "Python", "Go", "Bash", "C", "C++", "SQL"],
-  },
-  {
-    category: "Frameworks & Tools",
-    items: [
-      "REST APIs",
-      "Microservices",
-      "FastAPI",
-      "React",
-      "Next.js",
-      "Node.js",
-      "SQLAlchemy",
-      "Pydantic",
-      "Alembic",
-      "WebSockets",
-      "JUnit",
-      "Mocha",
-      "pytest",
-    ],
-  },
-  {
-    category: "Cloud & Infrastructure",
-    items: [
-      "AWS (EC2, SQS, ECS Fargate, CloudWatch, DynamoDB, IAM, VPC)",
-      "Terraform",
-      "VPC Peering",
-      "Docker",
-      "LocalStack",
-      "Twingate",
-      "Turborepo",
-      "pnpm",
-      "CI/CD",
-    ],
-  },
-  {
-    category: "Databases & Tooling",
-    items: ["MySQL", "PostgreSQL", "NoSQL", "Postman", "DataGrip", "Git", "GitHub"],
-  },
-  {
-    category: "Engineering Practices",
-    items: [
-      "Software Architecture",
-      "Technical Documentation",
-      "Root-Cause Analysis",
-      "Authorization / RBAC",
-      "Cross-Functional Communication",
-      "Agile",
-    ],
-  },
-];
+export type Volunteering = {
+  organization: string;
+  role?: string;
+  dates?: string;
+  description?: string;
+};
+
+export type Resume = {
+  profile: Profile;
+  experience: Experience[];
+  projects: Project[];
+  skills: SkillGroup[];
+  education: Education[];
+  volunteering: Volunteering[];
+};
+
+type Json = Record<string, unknown>;
+
+const isObject = (v: unknown): v is Json => typeof v === "object" && v !== null && !Array.isArray(v);
+const text = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
+const list = (v: unknown) =>
+  Array.isArray(v) ? v.map(text).filter((s): s is string => s !== undefined) : [];
+
+/** Builds each array item; items missing a required field are skipped (with a console warning). */
+function collect<T>(value: unknown, label: string, build: (o: Json) => T | undefined): T[] {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((item, i) => {
+    const built = isObject(item) ? build(item) : undefined;
+    if (!built) console.warn(`resume: skipped ${label}[${i}] — missing a required field`);
+    return built ? [built] : [];
+  });
+}
+
+/**
+ * Turns untrusted JSON (hand-edited, fetched from S3) into a fully-populated Resume.
+ * Returns null only if the file is unusable (no profile name); anything else degrades
+ * gracefully. Missing sections become empty — the bundled data is only used on failure,
+ * so deleting something from the JSON really removes it from the page.
+ */
+export function parseResume(input: unknown): Resume | null {
+  if (!isObject(input) || !isObject(input.profile)) return null;
+  const p = input.profile;
+  const name = text(p.name);
+  if (!name) return null;
+
+  return {
+    profile: {
+      name,
+      role: text(p.role),
+      summary: text(p.summary),
+      location: text(p.location),
+      languages: list(p.languages),
+      email: text(p.email),
+      phone: text(p.phone),
+      linkedin: text(p.linkedin),
+      github: text(p.github),
+      resumeUrl: text(p.resumeUrl),
+    },
+    experience: collect(input.experience, "experience", (o) => {
+      const company = text(o.company);
+      const title = text(o.title);
+      if (!company || !title) return undefined;
+      return {
+        company,
+        title,
+        location: text(o.location),
+        dates: text(o.dates),
+        bullets: list(o.bullets),
+        skills: list(o.skills),
+      };
+    }),
+    projects: collect(input.projects, "projects", (o) => {
+      const title = text(o.title);
+      if (!title) return undefined;
+      return {
+        title,
+        role: text(o.role),
+        dates: text(o.dates),
+        summary: text(o.summary),
+        bullets: list(o.bullets),
+        tech: list(o.tech),
+        link: text(o.link),
+        repo: text(o.repo),
+      };
+    }),
+    skills: collect(input.skills, "skills", (o) => {
+      const category = text(o.category);
+      if (!category) return undefined;
+      return { category, items: list(o.items) };
+    }),
+    education: collect(input.education, "education", (o) => {
+      const school = text(o.school);
+      if (!school) return undefined;
+      return {
+        school,
+        degree: text(o.degree),
+        dates: text(o.dates),
+        focus: text(o.focus),
+        coursework: list(o.coursework),
+      };
+    }),
+    volunteering: collect(input.volunteering, "volunteering", (o) => {
+      const organization = text(o.organization);
+      if (!organization) return undefined;
+      return {
+        organization,
+        role: text(o.role),
+        dates: text(o.dates),
+        description: text(o.description),
+      };
+    }),
+  };
+}
+
+/** Content baked into the build; shown instantly and used if the S3 fetch fails. */
+export const defaultResume = parseResume(bundled) as Resume;

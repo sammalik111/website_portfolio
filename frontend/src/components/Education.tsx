@@ -1,37 +1,31 @@
-import { GraduationCap } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { SectionHeader } from "@/components/SectionHeader";
-import { education } from "@/data/resume";
+import { Entry } from "@/components/Entry";
+import { Section } from "@/components/Section";
+import { useResume } from "@/data/ResumeProvider";
 
 export function Education() {
-  return (
-    <section id="education" className="mx-auto max-w-5xl px-4 py-24">
-      <SectionHeader tag="Credentials" title="Education" />
+  const { education, volunteering } = useResume();
+  if (education.length === 0 && volunteering.length === 0) return null;
 
-      <Card className="mx-auto max-w-2xl">
-        <CardHeader className="flex-row items-center gap-4">
-          <div className="glass flex size-14 items-center justify-center rounded-2xl">
-            <GraduationCap className="size-6 text-[hsl(var(--primary))]" />
-          </div>
-          <div>
-            <div className="text-xl font-bold">{education.school}</div>
-            <div className="font-medium text-[hsl(var(--primary))]">{education.degree}</div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="mb-3 text-sm text-[hsl(var(--muted-foreground))]">
-            {education.dates}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {education.coursework.map((course) => (
-              <Badge key={course} variant="outline">
-                {course}
-              </Badge>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-    </section>
+  return (
+    <Section id="education" title="Education & community">
+      {education.map((entry) => (
+        <Entry
+          key={entry.school}
+          meta={entry.dates}
+          title={entry.school}
+          subtitle={[entry.degree, entry.focus].filter(Boolean).join(" · ")}
+          tags={entry.coursework}
+        />
+      ))}
+      {volunteering.map((entry) => (
+        <Entry
+          key={entry.organization}
+          meta={entry.dates}
+          title={entry.organization}
+          subtitle={entry.role}
+          description={entry.description}
+        />
+      ))}
+    </Section>
   );
 }

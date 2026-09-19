@@ -7,7 +7,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card"
       className={cn(
-        "glass glass-specular glass-hover rounded-[var(--radius)] text-[hsl(var(--card-foreground))]",
+        "surface rounded-[var(--radius)] text-[hsl(var(--card-foreground))]",
         className,
       )}
       {...props}

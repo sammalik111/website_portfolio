@@ -5,22 +5,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4 outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium tracking-[-0.01em] transition-all duration-300 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4 outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--background))]",
   {
     variants: {
       variant: {
         default:
-          "bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(var(--accent))] text-[hsl(var(--primary-foreground))] shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.6)] hover:shadow-[0_12px_40px_-8px_hsl(var(--primary)/0.75)] hover:-translate-y-0.5",
-        glass:
-          "glass glass-hover text-[hsl(var(--foreground))]",
+          "bg-[hsl(var(--action))] text-white shadow-sm hover:brightness-110",
+        outline:
+          "surface text-[hsl(var(--foreground))] hover:bg-[hsl(var(--foreground)/0.04)]",
         ghost:
-          "hover:bg-[hsl(var(--foreground)/0.08)] text-[hsl(var(--foreground))]",
+          "text-[hsl(var(--foreground))] hover:bg-[hsl(var(--foreground)/0.06)]",
         link: "text-[hsl(var(--primary))] underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-11 px-6 py-2",
-        sm: "h-9 px-4 text-xs",
-        lg: "h-12 px-8 text-base",
+        default: "h-11 px-6 text-[15px]",
+        sm: "h-8 px-4 text-[13px]",
+        lg: "h-12 px-7 text-[17px]",
         icon: "size-11",
       },
     },

@@ -6,6 +6,7 @@
 @theme inline {
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", ui-sans-serif,
     system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
